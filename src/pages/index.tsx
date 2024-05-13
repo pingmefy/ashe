@@ -1,12 +1,10 @@
-// src/pages/index.tsx
+import {Navbar} from "@components/Navbar";
 import React from 'react';
-import SteamData from '../components/SteamData';
-
-const Home: React.FC = () => {
+import '../app/globals.css';
+const Home = () => {
   return (
     <div>
-      <h1>Welcome to the Steam Data Viewer</h1>
-      <SteamData />
+      <Navbar/>
     </div>
   );
 }
