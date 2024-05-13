@@ -1,10 +1,16 @@
 import React from "react";
+import {GameResponse} from "../util/types";
 import {BodyTitle} from "./BodyTitle";
+import {GamesContainer} from "./GamesContainer";
 
-export const Body = () => {
+type BodyProps = {
+  games: GameResponse[]
+}
+export const Body = ({games}: BodyProps) => {
   return (
-    <div className={"w-full bg-primaryColor h-full border-4 border-solid"}>
+    <div className={" w-[58%] bg-primaryColor h-full border-4 border-solid"}>
       <BodyTitle/>
+      <GamesContainer games={games}/>
     </div>
   )
 }
