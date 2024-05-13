@@ -8,7 +8,7 @@ export const Navbar = () => {
         whateverfy
       </span>
       <div className={"flex flex-row gap-4"}>
-        <input type="text" onChange={(e) => setSteamId(e.target.value)} value={steamId}/>
+        <input type="text" className={"text-highlightColor"} onChange={(e) => setSteamId(e.target.value)} value={steamId}/>
         <button>Test</button>
       </div>
     </div>
