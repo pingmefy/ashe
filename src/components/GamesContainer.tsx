@@ -54,7 +54,7 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
       <Roulette prizes={reproducedPrizeList}
                 prizeIndex={prizeIndex} start={start}
                 onPrizeDefined={handlePrizeDefined}
-                designPlugin={gameDesign({prizesWithText: false, hideCenterDelimiter: false})}
+                designPlugin={gameDesign()}
       />
       <button disabled={buttonState === ButtonState.ROLLING}
         className={"bg-greenPrimary rounded-lg" +
