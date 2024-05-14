@@ -11,6 +11,23 @@ enum ButtonState{
   ROLLING = "they see me rollin...",
   RETRY= "omg no, reroll!"
 }
+
+const getFormedPrizeList = (prizeList: PrizeType[]) => {
+  const reproductionArray = (array: PrizeType[] = [], length = 0) => [
+    ...Array(length)
+      .fill('_')
+      .map(() => array[Math.floor(Math.random() * array.length)]),
+  ];
+  return [
+    ...prizeList,
+    ...reproductionArray(prizeList, prizeList.length * 3),
+    ...prizeList,
+    ...reproductionArray(prizeList, prizeList.length),
+  ]
+}
+
+const emptyPrizeArray: PrizeType[] = [{id: 0, image: ""},{id: 1, image: ""},{id: 2, image: ""},{id: 3, image: ""}];
+
 export const GamesContainer = ({games}: GamesContainerProps) => {
   const [start, setStart] = useState(false);
   const [buttonState, setButtonState] = useState<ButtonState>(ButtonState.START);
@@ -25,8 +42,7 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
   };
 
   const prizeList: PrizeType[] = useMemo(() => {
-    if(!Array.isArray(games) || !games || games.length === 0) return []
-    console.log(games)
+    if(!Array.isArray(games) || !games || games.length === 0) return emptyPrizeArray
     return games.map((game, index) => {
       return {
         id: index,
@@ -35,23 +51,12 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
     })
   }, [games]);
 
-  const reproductionArray = (array: PrizeType[] = [], length = 0) => [
-    ...Array(length)
-      .fill('_')
-      .map(() => array[Math.floor(Math.random() * array.length)]),
-  ];
-  const reproducedPrizeList = [
-    ...prizeList,
-    ...reproductionArray(prizeList, prizeList.length * 3),
-    ...prizeList,
-    ...reproductionArray(prizeList, prizeList.length),
-  ];
 
   const prizeIndex = prizeList.length;
 
   return(
     <div className={"bg-primaryColorDark flex flex-col"}>
-      <Roulette prizes={reproducedPrizeList}
+      <Roulette prizes={getFormedPrizeList(prizeList)}
                 prizeIndex={prizeIndex} start={start}
                 onPrizeDefined={handlePrizeDefined}
                 designPlugin={gameDesign()}

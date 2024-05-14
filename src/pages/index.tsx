@@ -3,7 +3,7 @@ import {Body} from "@components/Body";
 import {Content} from "@components/Content";
 import {Header} from "@components/Header";
 import {Navbar} from "@components/Navbar";
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import '../app/globals.css';
 import {useSteamApi} from "../hooks/useSteamApi";
 import 'react-roulette-pro/dist/index.css';
@@ -11,10 +11,11 @@ import 'react-roulette-pro/dist/index.css';
 const Home = () => {
   const [steamId, setSteamId] = useState<string | null>(null);
   const {getCommonGames, getFriendList, games, friendList, getUserData, user} = useSteamApi();
-
+  const friends = useMemo(() => friendList, [friendList]);
   useEffect(() => {
+    if(friendList.length === 0) return;
     getCommonGames();
-  }, [friendList]);
+  }, [friends]);
 
   useEffect(() => {
     if(steamId === null) return;
