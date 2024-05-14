@@ -5,12 +5,14 @@ import {Header} from "@components/Header";
 import {Navbar} from "@components/Navbar";
 import React, {useEffect, useState} from 'react';
 import '../app/globals.css';
+import {UserSummary} from "steamapi";
 import {GameResponse} from "../util/types";
 import 'react-roulette-pro/dist/index.css';
 
 const Home = () => {
   const [games, setGames] = useState<GameResponse[]>([]);
   const [steamId, setSteamId] = useState<string | null>(null);
+  const [user, setUser] = useState<UserSummary | null>(null);
   //TODO: edit this to only trigger when steamId changes
   useEffect(() => {
     fetch('/api/mockCommonGames', {
@@ -28,13 +30,31 @@ const Home = () => {
         console.error('Error fetching data:', error);
       });
   }, []);
+
+  useEffect(() => {
+    if(steamId !== null){
+      fetch('/api/mockUserData', {
+        method: 'GET', // Set the method to POST
+        headers: {
+          'Content-Type': 'application/json', // Set the Content-Type header to application/json
+        },
+      })
+        .then(response => response.json())
+        .then(data => {
+          setUser(data);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }
+  }, [steamId]);
   return (
     <div className={"flex flex-col min-h-[100vh]"}>
       <Navbar setSteamId={setSteamId}/>
       <Header/>
       <Content>
         <ADSection/>
-        <Body games={games}/>
+        <Body games={games} friends={[]} user={user}/>
         <ADSection/>
       </Content>
     </div>

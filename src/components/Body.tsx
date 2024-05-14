@@ -9,7 +9,7 @@ import {LoginButton} from "./LoginButton";
 type BodyProps = {
   games: GameResponse[]
   friends: UserSummary[]
-  user?: UserSummary
+  user?: UserSummary | null
 }
 
 const UnAuthBlock = () => {
