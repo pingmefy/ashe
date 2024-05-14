@@ -1,17 +1,20 @@
 import React, {useMemo} from "react";
 import {UserSummary} from "steamapi";
-import {mockUser, mockUserSummaries} from "../util/mocks/Friends";
 import {FriendItem} from "./FriendItem";
 import {FriendList} from "./FriendList";
 
+type FriendsSectionProps = {
+  friends: UserSummary[]
+  user: UserSummary
+}
 
-export const FriendsSection = () => {
+export const FriendsSection = ({friends, user}: FriendsSectionProps) => {
   const [friendListVisible, setFriendListVisible] = React.useState(false)
-  const [selectedFriends, setSelectedFriends] = React.useState<UserSummary[]>([mockUser])
+  const [selectedFriends, setSelectedFriends] = React.useState<UserSummary[]>([user])
   const selectedIds = useMemo(() => selectedFriends.map(friend => friend.steamID), [selectedFriends])
 
   const handleClickOnFriend = (user: UserSummary) => {
-    if(selectedIds.includes(user.steamID) && user.steamID !== mockUser.steamID) {
+    if(selectedIds.includes(user.steamID) && user.steamID !== user.steamID) {
       setSelectedFriends(selectedFriends.filter(friend => friend.steamID !== user.steamID))
     }
   };
@@ -32,10 +35,10 @@ export const FriendsSection = () => {
         {selectedFriends.map((user, index) => {
           return <FriendItem key={index} user={user} selected={true} onClick={() => handleClickOnFriend(user)}/>
         })}
-        {mockUserSummaries.length < 4 && <FriendItem  onClick={() => setFriendListVisible((prevState) => !prevState)}/>}
+        {friends.length < 4 && <FriendItem  onClick={() => setFriendListVisible((prevState) => !prevState)}/>}
       </div>
       { friendListVisible &&
-          <FriendList friends={mockUserSummaries} selectedFriendIds={selectedIds} onFriendClick={manageSelectFriend}/>
+          <FriendList friends={friends} selectedFriendIds={selectedIds} onFriendClick={manageSelectFriend}/>
       }
     </div>
   )

@@ -10,6 +10,7 @@ import 'react-roulette-pro/dist/index.css';
 
 const Home = () => {
   const [games, setGames] = useState<GameResponse[]>([]);
+  const [steamId, setSteamId] = useState<string | null>(null);
   //TODO: edit this to only trigger when steamId changes
   useEffect(() => {
     fetch('/api/mockCommonGames', {
@@ -29,7 +30,7 @@ const Home = () => {
   }, []);
   return (
     <div className={"flex flex-col min-h-[100vh]"}>
-      <Navbar/>
+      <Navbar setSteamId={setSteamId}/>
       <Header/>
       <Content>
         <ADSection/>

@@ -1,15 +1,19 @@
 import {useState} from "react";
 
-export const Navbar = () => {
-  const [steamId, setSteamId] = useState<string>("")
+type NavbarProps = {
+  setSteamId: (steamId: string) => void;
+}
+
+export const Navbar = ({setSteamId}: NavbarProps) => {
+  const [inputValue, setInputValue] = useState<string>("")
   return(
     <div className={`flex flex-row gap-4 w-full justify-center items-center bg-primaryColorDark p-4`}>
       <span className={"header-text"}>
         whateverfy
       </span>
       <div className={"flex flex-row gap-4"}>
-        <input type="text" className={"text-highlightColor"} onChange={(e) => setSteamId(e.target.value)} value={steamId}/>
-        <button>Test</button>
+        <input type="text" className={"text-highlightColor"} onChange={(e) => setInputValue(e.target.value)} value={inputValue}/>
+        <button onClick={() => setSteamId(inputValue)}>Test</button>
       </div>
     </div>
   )
