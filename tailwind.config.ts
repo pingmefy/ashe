@@ -12,7 +12,9 @@ const config: Config = {
       primaryColorDark: "#101A23",
       highlightColor: "#2496EC",
       headerColor: "rgba(217, 217, 217, 0.1)",
-      greenPrimary: "#BEEE11"
+      greenPrimary: "#BEEE11",
+      gray: "#A6A6A6",
+      darkGray: "#323232"
     },
     extend: {
       backgroundImage: {
