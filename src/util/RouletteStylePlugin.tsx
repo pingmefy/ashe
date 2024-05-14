@@ -1,40 +1,28 @@
 import React from 'react';
 
-import {IDesignPlugin, IDesignPluginProps} from "react-roulette-pro";
+import {IDesignPlugin} from "react-roulette-pro";
 
 
-export interface IRegularDesignProps {
-  hideCenterDelimiter?: boolean;
-  prizesWithText?: boolean;
-}
-
-interface ITopChildrenProps {
-  hideCenterDelimiter: IRegularDesignProps['hideCenterDelimiter'];
-  type: IDesignPluginProps['type'];
-}
-
-const TopChildren = ({ type, hideCenterDelimiter }: ITopChildrenProps) => {
-  return hideCenterDelimiter !== true ? (
+const TopChildren = () => {
+  return (
     <div
-      className={`arrow ${type}`}
+      className={`arrow`}
     />
-  ) : null;
+  );
 };
 
-const gameDesign =
-  ({ prizesWithText, hideCenterDelimiter }: IRegularDesignProps) =>
-    ({ type }: IDesignPluginProps): IDesignPlugin => {
+const gameDesign = () => (): IDesignPlugin => {
       const prizeItemWidth: number = 600;
       const prizeItemHeight: number = 900;
 
       return {
         topChildren: (
-          <TopChildren type={type} hideCenterDelimiter={hideCenterDelimiter} />
+          <TopChildren/>
         ),
         bottomChildren:null,
         prizeItemWidth,
         prizeItemHeight,
-        prizeItemRenderFunction: ({ image, text }) => {
+        prizeItemRenderFunction: ({ image }) => {
 
           return (
             <div
