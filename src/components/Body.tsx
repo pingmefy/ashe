@@ -8,7 +8,7 @@ type BodyProps = {
 }
 export const Body = ({games}: BodyProps) => {
   return (
-    <div className={" w-[58%] bg-primaryColor h-full border-4 border-solid"}>
+    <div className={" w-[58%] bg-primaryColor h-full"}>
       <BodyTitle/>
       <GamesContainer games={games}/>
     </div>

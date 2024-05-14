@@ -1,5 +1,6 @@
 import React, {useMemo, useState} from "react";
 import Roulette, {PrizeType} from "react-roulette-pro";
+import gameDesign from "../util/RouletteStylePlugin";
 import {GameResponse} from "../util/types";
 
 type GamesContainerProps = {
@@ -40,9 +41,16 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
   const prizeIndex = prizeList.length;
 
   return(
-    <div className={"bg-primaryColorDark p-4"}>
-      <Roulette prizes={reproducedPrizeList} prizeIndex={prizeIndex} start={start} onPrizeDefined={handlePrizeDefined}/>
-      <button onClick={handleStart}>Start test</button>
+    <div className={"bg-primaryColorDark flex flex-col"}>
+      <Roulette prizes={reproducedPrizeList}
+                prizeIndex={prizeIndex} start={start}
+                onPrizeDefined={handlePrizeDefined}
+                designPlugin={gameDesign({prizesWithText: false, hideCenterDelimiter: false})}
+      />
+      <button
+        className={"bg-greenPrimary rounded-lg" +
+          " text-primaryColor font-bold px-4 py-2 m-auto cta-btn"}
+        onClick={handleStart}>find a game for us</button>
     </div>
   )
 }
