@@ -7,7 +7,7 @@ type NavbarProps = {
 export const Navbar = ({setSteamId}: NavbarProps) => {
   const [inputValue, setInputValue] = useState<string>("")
   return(
-    <div className={`flex flex-row gap-4 w-full justify-center items-center bg-primaryColorDark p-4`}>
+    <div className={`flex flex-row gap-4 w-full justify-center items-center bg-primaryColorDark`}>
       <span className={"header-text"}>
         whateverfy
       </span>
