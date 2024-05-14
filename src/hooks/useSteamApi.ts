@@ -31,7 +31,7 @@ export const useSteamApi = () => {
       headers: {
         'Content-Type': 'application/json', // Set the Content-Type header to application/json
       },
-      body: JSON.stringify({steamIds: ["76561197998388059"] })
+      body: JSON.stringify({steamIds: users.map(user => user.steamID) })
     })
       .then(response => response.json())
       .then(data => {

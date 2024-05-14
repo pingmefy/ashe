@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     getCommonGames();
-  }, []);
+  }, [friendList]);
 
   useEffect(() => {
     if(steamId === null) return;
