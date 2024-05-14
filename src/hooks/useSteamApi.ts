@@ -41,12 +41,13 @@ export const useSteamApi = () => {
       });
   }
 
-  const getUserData= (steamId: string) => {
+  const getUserData = (steamId: string) => {
     fetch('/api/mockUserData', {
-      method: 'GET', // Set the method to POST
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/json', // Set the Content-Type header to application/json
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({steamId: steamId})
     })
       .then(response => response.json())
       .then(data => {
