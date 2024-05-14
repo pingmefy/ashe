@@ -5,6 +5,7 @@ import {FriendItem} from "./FriendItem";
 type FriendListProps = {
   friends: UserSummary[];
   selectedFriendIds: string[];
+  onFriendClick: (user: UserSummary) => void;
 }
 
 const getGridClass = (friends: UserSummary[]) => {
@@ -21,13 +22,15 @@ const getGridClass = (friends: UserSummary[]) => {
   }
 };
 
-export const FriendList = ({friends, selectedFriendIds}: FriendListProps) => {
+export const FriendList = ({friends, selectedFriendIds, onFriendClick}: FriendListProps) => {
   return(
-    <div className={"flex flex-col gap-4 p-4"}>
+    <div className={"flex flex-col gap-4 pt-0 p-4"}>
       <div className={"h-[1px] bg-greenPrimary w-[90%] m-auto"}/>
       <div className={`grid ${getGridClass(friends)} gap-4`}>
         {friends.map((friend, index) => {
-          return <FriendItem key={index} user={friend} selected={selectedFriendIds.includes(friend.steamID)}/>
+          return <FriendItem key={index} user={friend}
+                 selected={selectedFriendIds.includes(friend.steamID)}
+                 onClick={() => onFriendClick(friend)}/>
         })}
       </div>
     </div>
