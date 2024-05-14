@@ -4,7 +4,6 @@ import {GameResponse} from "../util/types";
 
 export const useSteamApi = () => {
   const [games, setGames] = useState<GameResponse[]>([]);
-  const [steamId, setSteamId] = useState<string | null>(null);
   const [user, setUser] = useState<UserSummary | null>(null);
   const [friendList, setFriendList] = useState<UserSummary[]>([]);
 
