@@ -6,13 +6,22 @@ import {GameResponse} from "../util/types";
 type GamesContainerProps = {
   games: GameResponse[];
 }
+enum ButtonState{
+  START = "find a game for us",
+  ROLLING = "they see me rollin...",
+  RETRY= "omg no, reroll!"
+}
 export const GamesContainer = ({games}: GamesContainerProps) => {
   const [start, setStart] = useState(false);
+  const [buttonState, setButtonState] = useState<ButtonState>(ButtonState.START);
   const handleStart = () => {
-    setStart((prevState) => !prevState);
+    const newValue = !start
+    newValue ? setButtonState(ButtonState.ROLLING) : setButtonState(ButtonState.START)
+    setStart(newValue);
   };
+
   const handlePrizeDefined = () => {
-    console.log('🥳 Prize defined! 🥳');
+    setButtonState(ButtonState.RETRY);
   };
 
   const prizeList: PrizeType[] = useMemo(() => {
@@ -47,10 +56,11 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
                 onPrizeDefined={handlePrizeDefined}
                 designPlugin={gameDesign({prizesWithText: false, hideCenterDelimiter: false})}
       />
-      <button
+      <button disabled={buttonState === ButtonState.ROLLING}
         className={"bg-greenPrimary rounded-lg" +
-          " text-primaryColor font-bold px-4 py-2 m-auto cta-btn"}
-        onClick={handleStart}>find a game for us</button>
+          " text-primaryColor font-bold px-4 py-2 m-auto cta-btn" +
+          " disabled:opacity-50 disabled:cursor-not-allowed"}
+        onClick={handleStart}>{buttonState}</button>
     </div>
   )
 }
