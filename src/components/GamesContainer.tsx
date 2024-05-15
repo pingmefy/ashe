@@ -44,7 +44,7 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
   };
 
   const prizeList: PrizeType[] = useMemo(() => {
-    if(!Array.isArray(memoGames) || !memoGames || memoGames.length === 0) return emptyPrizeArray
+    if(!Array.isArray(memoGames) || !memoGames || memoGames.length === 0) return []
     return memoGames.map((game, index) => {
       return {
         id: index,

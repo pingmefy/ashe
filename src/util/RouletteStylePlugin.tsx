@@ -14,7 +14,7 @@ const TopChildren = () => {
 
 const PrizeItem = ({ image }: { image: string }) => {
   return (
-    <div className={'roulette-pro-regular-prize-item-wrapper center'}>
+    <div className={'roulette-pro-regular-prize-item-wrapper center '}>
       <div className="roulette-pro-regular-image-wrapper">
         <img
           className="roulette-pro-regular-prize-item-image"
