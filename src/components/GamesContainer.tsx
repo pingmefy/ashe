@@ -74,7 +74,7 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
         />
 
       }
-      <button disabled={buttonState === ButtonState.ROLLING}
+      <button disabled={buttonState === ButtonState.ROLLING || memoGames.length === 0}
         className={"bg-greenPrimary rounded-lg text-xl" +
           " text-primaryColor font-bold px-4 py-2 m-auto cta-btn" +
           " disabled:opacity-50 disabled:cursor-not-allowed"}
