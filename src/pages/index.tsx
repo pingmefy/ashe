@@ -12,20 +12,21 @@ const Home = () => {
   const [steamId, setSteamId] = useState<string | null>(null);
   const {getCommonGames, getFriendList, games, friendList, getUserData, user} = useSteamApi();
   const friends = useMemo(() => friendList, [friendList]);
+
   useEffect(() => {
     if(friends.length === 0) return;
     getCommonGames();
-  }, [friends, getCommonGames]);
+  }, [friends]);
 
   useEffect(() => {
     if(steamId === null) return;
     getUserData(steamId);
-  }, [steamId, getUserData]);
+  }, [steamId]);
 
   useEffect(() => {
     if(user === null) return;
     getFriendList(user)
-  }, [user, getFriendList]);
+  }, [user]);
   return (
     <div className={"flex flex-col min-h-[100vh]"}>
       <Navbar setSteamId={setSteamId}/>

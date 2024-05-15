@@ -54,7 +54,7 @@ export const SteamIcon = () => {
       <defs>
         <filter id="filter0_d_2_1274" x="3.875" y="3.375" width="29.25"
                 height="30.25" filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB">
+                colorInterpolationFilters="sRGB">
           <feFlood floodOpacity="0" result="BackgroundImageFix"/>
           <feColorMatrix in="SourceAlpha" type="matrix"
                          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
