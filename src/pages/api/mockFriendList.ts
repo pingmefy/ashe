@@ -1,5 +1,5 @@
 import type {NextApiRequest, NextApiResponse} from 'next';
-import SteamAPI, {UserFriend, UserSummary,} from 'steamapi';
+import {UserSummary,} from 'steamapi';
 import {mockUserSummaries} from "../../util/mocks/Friends";
 
 export default async function handler(

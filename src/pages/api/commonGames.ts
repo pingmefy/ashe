@@ -10,7 +10,9 @@ export default async function handler(
 ) {
   try {
     const steam = new SteamAPI(process.env.API_KEY || "");
+    console.log("starting common games")
     const steamIds: string[] = req.body.steamIds;
+    console.log("got steam ids", steamIds)
     const games: UserPlaytime<Game | GameInfo | GameInfoExtended>[][] = []
     const commonGames: UserPlaytime<Game | GameInfo | GameInfoExtended>[] = []
     for (let steamId of steamIds) {
@@ -19,6 +21,7 @@ export default async function handler(
     }
     if(games.length === 0) res.status(200).json([]);
     commonGames.push(...games[0].filter((item) => games.every((game) => game.some((gameItem) => gameItem.game.id === item.game.id))));
+    console.log(commonGames)
     const response = await Promise.all(commonGames.map(async (game) => {
       try{
       const gameDetail = await steam.getGameDetails(game.game.id);

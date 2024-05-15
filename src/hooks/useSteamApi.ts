@@ -9,28 +9,29 @@ export const useSteamApi = () => {
 
   const getFriendList = (user: UserSummary) => {
     if(user === null) return;
-    fetch('/api/mockFriendList', {
-      method: 'GET', // Set the method to POST
+    fetch('/api/friendList', {
+      method: 'POST', // Set the method to POST
       headers: {
         'Content-Type': 'application/json', // Set the Content-Type header to application/json
       },
+      body: JSON.stringify({steamId: user.steamID})
     })
       .then(response => response.json())
       .then(data => {
-        setFriendList(data);
+        setFriendList(data as UserSummary[]);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
   }
 
-  const getCommonGames = (users: UserSummary[] = []) => {
+  const getCommonGames = (steamIds: string[] = []) => {
     fetch('/api/mockCommonGames', {
       method: 'POST', // Set the method to POST
       headers: {
         'Content-Type': 'application/json', // Set the Content-Type header to application/json
       },
-      body: JSON.stringify({steamIds: users.map(user => user.steamID) })
+      body: JSON.stringify({steamIds: steamIds })
     })
       .then(response => response.json())
       .then(data => {
@@ -42,7 +43,7 @@ export const useSteamApi = () => {
   }
 
   const getUserData = (steamId: string) => {
-    fetch('/api/mockUserData', {
+    fetch('/api/userData', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

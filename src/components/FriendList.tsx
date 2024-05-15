@@ -18,7 +18,7 @@ const getGridClass = (friends: UserSummary[]) => {
         return "grid-cols-3";
       case 4:
       default:
-        return "grid-cols-";
+        return "grid-cols-4";
   }
 };
 

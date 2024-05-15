@@ -1,11 +1,10 @@
 import {useState} from "react";
+import {useAppContext} from "../context/AppContext";
 
-type NavbarProps = {
-  setSteamId: (steamId: string) => void;
-}
 
-export const Navbar = ({setSteamId}: NavbarProps) => {
+export const Navbar = () => {
   const [inputValue, setInputValue] = useState<string>("")
+  const {setSteamId} = useAppContext();
   return(
     <div className={`flex flex-row gap-4 w-full justify-center items-center bg-primaryColorDark`}>
       <span className={"header-text"}>

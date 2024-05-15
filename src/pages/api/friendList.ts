@@ -8,7 +8,8 @@ export default async function handler(
 ) {
   try {
     const steam = new SteamAPI(process.env.API_KEY || "");
-    const userFriends = await getUsers("76561197998388059", steam);
+    const steamId = req.body.steamId;
+    const userFriends = await getUsers(steamId, steam);
     if(userFriends.length === 0) res.status(200).json([]);
     const steamIds = userFriends.map((userFriend) => userFriend.steamID)
     const summaries = await steam.getUserSummary(steamIds);

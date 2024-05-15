@@ -26,7 +26,7 @@ export const Body = ({games, friends, user}: BodyProps) => {
       <BodyTitle/>
       <GamesContainer games={games}/>
       {
-        user ? <FriendsSection friends={friends} user={user}/> : <UnAuthBlock/>
+        user ? <FriendsSection friends={friends} user={user} /> : <UnAuthBlock/>
       }
     </div>
   )
