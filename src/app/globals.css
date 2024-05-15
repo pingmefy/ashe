@@ -26,10 +26,6 @@ body {
   transform: translateY(50%);
 }
 
-.roulette-pro-wrapper {
-  padding: 1rem;
-}
-
 .roulette-pro-prize-list {
   top: -25px !important;
 }

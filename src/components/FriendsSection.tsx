@@ -13,9 +13,10 @@ export const FriendsSection = ({friends, user}: FriendsSectionProps) => {
   const [selectedFriends, setSelectedFriends] = React.useState<UserSummary[]>([user])
   const selectedIds = useMemo(() => selectedFriends.map(friend => friend.steamID), [selectedFriends])
 
-  const handleClickOnFriend = (user: UserSummary) => {
-    if(selectedIds.includes(user.steamID) && user.steamID !== user.steamID) {
-      setSelectedFriends(selectedFriends.filter(friend => friend.steamID !== user.steamID))
+
+  const handleClickOnFriend = (friend: UserSummary) => {
+    if(selectedIds.includes(friend.steamID) && friend.steamID !== user.steamID) {
+      setSelectedFriends(selectedFriends.filter(friend => friend.steamID !== friend.steamID))
     }
   };
 
@@ -25,15 +26,14 @@ export const FriendsSection = ({friends, user}: FriendsSectionProps) => {
     } else {
       setSelectedFriends([...selectedFriends, user])
     }
-
   };
 
   return (
     <div className={"bg-primaryColorDark m-10 p-4 flex flex-col"}>
       <span className={"text-white m-auto"}>choose the friends you want to play with</span>
       <div className={"flex gap-2 p-4"}>
-        {selectedFriends.map((user, index) => {
-          return <FriendItem key={index} user={user} selected={true} onClick={() => handleClickOnFriend(user)}/>
+        {selectedFriends.map((user) => {
+          return <FriendItem key={user.steamID} user={user} selected={true} onClick={() => handleClickOnFriend(user)}/>
         })}
         {friends.length < 4 && <FriendItem  onClick={() => setFriendListVisible((prevState) => !prevState)}/>}
       </div>
