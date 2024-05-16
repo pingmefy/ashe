@@ -6,7 +6,8 @@ import gameDesign from "../util/RouletteStylePlugin";
 enum ButtonState{
   START = "find a game for us",
   ROLLING = "they see me rollin...",
-  RETRY= "omg no, reroll!"
+  RETRY= "omg no, reroll!",
+  LOADING = "loading games..."
 }
 
 const getFormedPrizeList = (prizeList: PrizeType[]) => {
@@ -53,24 +54,11 @@ export const GamesContainer = () => {
 
   const handleStartButton = () => {
     if(needToRefreshGames.current) {
+      setButtonState(ButtonState.LOADING)
       getCommonGames(selectedFriends.map((friend) => friend.steamID))
     }else {
       handleStart()
     }
-  };
-
-  const handleStart = () => {
-    if(prizeList.length === 0) return
-    const newValue = !start
-    newValue ? setButtonState(ButtonState.ROLLING) : setButtonState(ButtonState.START)
-    if(!newValue) {
-      setGameList(shuffleArray([...memoGameList]))
-    }
-    setStart(newValue);
-  }
-
-  const handlePrizeDefined = () => {
-    setButtonState(ButtonState.RETRY);
   };
 
   const prizeList: PrizeType[] = useMemo(() => {
@@ -83,13 +71,28 @@ export const GamesContainer = () => {
     })
   }, [memoGameList]);
 
+  const formedPrizeList = useMemo(() => getFormedPrizeList(prizeList), [prizeList]);
+  const formedEmptyList = useMemo(() => getFormedPrizeList(emptyPrizeArray), []);
+
+  const handleStart = () => {
+    if(prizeList.length === 0) return
+    const newValue = !start
+    newValue ? setButtonState(ButtonState.ROLLING) : setButtonState(ButtonState.START)
+    if(!newValue) {
+      setGameList(shuffleArray([...memoGameList]))
+    }
+    console.log(formedPrizeList)
+    setStart(newValue);
+  }
+
+  const handlePrizeDefined = () => {
+    setButtonState(ButtonState.RETRY);
+  };
+
   useEffect(() => {
     handleStart()
     needToRefreshGames.current = false
   }, [prizeList]);
-
-  const formedPrizeList = useMemo(() => getFormedPrizeList(prizeList), [prizeList]);
-  const formedEmptyList = useMemo(() => getFormedPrizeList(emptyPrizeArray), []);
 
   const prizeIndex = formedPrizeList.length;
   return(
@@ -108,7 +111,7 @@ export const GamesContainer = () => {
         />
 
       }
-      <button disabled={buttonState === ButtonState.ROLLING || selectedFriends.length < 2}
+      <button disabled={buttonState === ButtonState.ROLLING || selectedFriends.length < 2 || buttonState === ButtonState.LOADING}
         className={"bg-greenPrimary rounded-lg text-xl" +
           " text-primaryColor font-bold px-4 py-2 m-auto cta-btn" +
           " disabled:opacity-50 disabled:cursor-not-allowed"}
