@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import Roulette, {PrizeType} from "react-roulette-pro";
 import {useAppContext} from "../context/AppContext";
 import gameDesign from "../util/RouletteStylePlugin";
@@ -27,16 +27,33 @@ const getFormedPrizeList = (prizeList: PrizeType[]) => {
   ].map((prize, index) => ({...prize, id: index}));
 }
 
-const emptyPrizeArray: PrizeType[] = Array(20).fill({id: 1, image: "" }, 0, 20).map((item, index) => ({id: index, image: ""}));
+const emptyPrizeArray: PrizeType[] = Array(20).fill({id: 1, image: "" }, 0, 20).map((_, index) => ({id: index, image: ""}));
 
 export const GamesContainer = ({games}: GamesContainerProps) => {
   const [start, setStart] = useState(false);
   const [buttonState, setButtonState] = useState<ButtonState>(ButtonState.START);
   const {selectedFriends, getCommonGames} = useAppContext();
+  let needToRefreshGames = useRef(false);
+
+  const memoSelectedFriends = useMemo(() => selectedFriends, [selectedFriends])
+  useEffect(() => {
+    if(memoSelectedFriends.length > 1) needToRefreshGames.current = true
+  }, [memoSelectedFriends]);
+
+  const handleStartButton = () => {
+    if(needToRefreshGames.current) {
+      getCommonGames(selectedFriends.map((friend) => friend.steamID))
+    }else {
+      handleStart()
+    }
+  };
 
   const handleStart = () => {
-    getCommonGames(selectedFriends.map((friend) => friend.steamID))
-  };
+    if(prizeList.length === 0) return
+    const newValue = !start
+    newValue ? setButtonState(ButtonState.ROLLING) : setButtonState(ButtonState.START)
+    setStart(newValue);
+  }
 
   const memoGames = useMemo(() => games, [games]);
 
@@ -55,10 +72,8 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
   }, [memoGames]);
 
   useEffect(() => {
-    if(prizeList.length === 0) return
-    const newValue = !start
-    newValue ? setButtonState(ButtonState.ROLLING) : setButtonState(ButtonState.START)
-    setStart(newValue);
+    handleStart()
+    needToRefreshGames.current = false
   }, [prizeList]);
 
   const formedPrizeList = useMemo(() => getFormedPrizeList(prizeList), [prizeList]);
@@ -85,7 +100,7 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
         className={"bg-greenPrimary rounded-lg text-xl" +
           " text-primaryColor font-bold px-4 py-2 m-auto cta-btn" +
           " disabled:opacity-50 disabled:cursor-not-allowed"}
-        onClick={handleStart}>{buttonState}</button>
+        onClick={handleStartButton}>{buttonState}</button>
     </div>
   )
 }
