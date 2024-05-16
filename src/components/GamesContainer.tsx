@@ -81,7 +81,6 @@ export const GamesContainer = () => {
     if(!newValue) {
       setGameList(shuffleArray([...memoGameList]))
     }
-    console.log(formedPrizeList)
     setStart(newValue);
   }
 
