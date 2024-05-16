@@ -16,6 +16,8 @@ type AppContextType = {
   games: GameResponse[];
   getCommonGames: (steamIds: string[]) => void;
   getUserData: (steamId: string) => void;
+  selectedFriends: UserSummary[];
+  setSelectedFriends: (friends: UserSummary[]) => void;
 };
 
 const defaultAppContext: AppContextType = {
@@ -35,6 +37,10 @@ const defaultAppContext: AppContextType = {
   getUserData: () => {
     return;
   },
+  selectedFriends: [],
+  setSelectedFriends: () => {
+    return;
+  },
 };
 
 export const AppContext = createContext(defaultAppContext);
@@ -42,6 +48,7 @@ export const AppContext = createContext(defaultAppContext);
 const AppProvider = (props: PropsWithChildren<object>) => {
   const [steamId, setSteamId] = useState<string | null>(null);
   const {getCommonGames, getFriendList, games, friendList, getUserData, user} = useSteamApi();
+  const [selectedFriends, setSelectedFriends] = React.useState<UserSummary[]>([])
 
   useEffect(() => {
     if(steamId === null) return;
@@ -50,6 +57,7 @@ const AppProvider = (props: PropsWithChildren<object>) => {
 
   useEffect(() => {
     if(user === null) return;
+    setSelectedFriends([user])
     getFriendList(user)
   }, [user]);
 
@@ -64,6 +72,8 @@ const AppProvider = (props: PropsWithChildren<object>) => {
         games,
         getCommonGames,
         getUserData,
+        selectedFriends,
+        setSelectedFriends,
       }}
     >
       {props.children}

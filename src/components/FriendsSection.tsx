@@ -1,5 +1,6 @@
 import React, {useEffect, useMemo} from "react";
 import {UserSummary} from "steamapi";
+import {useAppContext} from "../context/AppContext";
 import {FriendItem} from "./FriendItem";
 import {FriendList} from "./FriendList";
 
@@ -10,7 +11,7 @@ type FriendsSectionProps = {
 
 export const FriendsSection = ({friends, user,}: FriendsSectionProps) => {
   const [friendListVisible, setFriendListVisible] = React.useState(false)
-  const [selectedFriends, setSelectedFriends] = React.useState<UserSummary[]>([user])
+  const {selectedFriends, setSelectedFriends} = useAppContext()
   const selectedIds = useMemo(() => selectedFriends.map(friend => friend.steamID), [selectedFriends])
 
   const handleClickOnFriend = (selectedFriend: UserSummary) => {

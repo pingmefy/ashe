@@ -26,7 +26,7 @@ export const useSteamApi = () => {
   }
 
   const getCommonGames = (steamIds: string[] = []) => {
-    fetch('/api/mockCommonGames', {
+    fetch('/api/commonGames', {
       method: 'POST', // Set the method to POST
       headers: {
         'Content-Type': 'application/json', // Set the Content-Type header to application/json

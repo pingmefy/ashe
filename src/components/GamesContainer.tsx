@@ -1,5 +1,6 @@
-import React, {useMemo, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import Roulette, {PrizeType} from "react-roulette-pro";
+import {useAppContext} from "../context/AppContext";
 import gameDesign from "../util/RouletteStylePlugin";
 import {GameResponse} from "../util/types";
 
@@ -31,10 +32,10 @@ const emptyPrizeArray: PrizeType[] = Array(20).fill({id: 1, image: "" }, 0, 20).
 export const GamesContainer = ({games}: GamesContainerProps) => {
   const [start, setStart] = useState(false);
   const [buttonState, setButtonState] = useState<ButtonState>(ButtonState.START);
+  const {selectedFriends, getCommonGames} = useAppContext();
+
   const handleStart = () => {
-    const newValue = !start
-    newValue ? setButtonState(ButtonState.ROLLING) : setButtonState(ButtonState.START)
-    setStart(newValue);
+    getCommonGames(selectedFriends.map((friend) => friend.steamID))
   };
 
   const memoGames = useMemo(() => games, [games]);
@@ -53,11 +54,17 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
     })
   }, [memoGames]);
 
+  useEffect(() => {
+    if(prizeList.length === 0) return
+    const newValue = !start
+    newValue ? setButtonState(ButtonState.ROLLING) : setButtonState(ButtonState.START)
+    setStart(newValue);
+  }, [prizeList]);
+
   const formedPrizeList = useMemo(() => getFormedPrizeList(prizeList), [prizeList]);
   const formedEmptyList = useMemo(() => getFormedPrizeList(emptyPrizeArray), []);
 
   const prizeIndex = formedPrizeList.length;
-
   return(
     <div className={"bg-primaryColorDark flex flex-col"}>
       {!Array.isArray(memoGames) || memoGames.length === 0 ?
@@ -74,7 +81,7 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
         />
 
       }
-      <button disabled={buttonState === ButtonState.ROLLING || memoGames.length === 0}
+      <button disabled={buttonState === ButtonState.ROLLING || selectedFriends.length < 2}
         className={"bg-greenPrimary rounded-lg text-xl" +
           " text-primaryColor font-bold px-4 py-2 m-auto cta-btn" +
           " disabled:opacity-50 disabled:cursor-not-allowed"}
