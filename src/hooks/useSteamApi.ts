@@ -18,6 +18,7 @@ export const useSteamApi = () => {
     })
       .then(response => response.json())
       .then(data => {
+        if(data.error) return;
         setFriendList(data as UserSummary[]);
       })
       .catch(error => {
@@ -35,6 +36,7 @@ export const useSteamApi = () => {
     })
       .then(response => response.json())
       .then(data => {
+        if(data.error) return;
         setGames(data);
       })
       .catch(error => {
@@ -52,6 +54,7 @@ export const useSteamApi = () => {
     })
       .then(response => response.json())
       .then(data => {
+        if(data.error) return;
         setUser(data);
       })
       .catch(error => {
