@@ -1,4 +1,5 @@
 import React, {useEffect, useMemo, useRef, useState} from "react";
+import Confetti from "react-confetti";
 import Roulette, {PrizeType} from "react-roulette-pro";
 import {useAppContext} from "../context/AppContext";
 import gameDesign from "../util/RouletteStylePlugin";
@@ -41,6 +42,7 @@ export const GamesContainer = () => {
   const [buttonState, setButtonState] = useState<ButtonState>(ButtonState.START);
   const {selectedFriends, getCommonGames, games} = useAppContext();
   const [gameList, setGameList] = useState(games);
+  const [showConfetti, setShowConfetti] = useState(false);
   const memoGameList = useMemo(() => gameList, [gameList]);
   let needToRefreshGames = useRef(false);
 
@@ -86,6 +88,7 @@ export const GamesContainer = () => {
 
   const handlePrizeDefined = () => {
     setButtonState(ButtonState.RETRY);
+    setShowConfetti(true);
   };
 
   useEffect(() => {
@@ -110,6 +113,14 @@ export const GamesContainer = () => {
         />
 
       }
+      {showConfetti && <Confetti
+          width={window.outerWidth}
+          height={window.outerHeight}
+          recycle={false}
+          onConfettiComplete={() => setShowConfetti(false)}
+
+      />}
+
       <button disabled={buttonState === ButtonState.ROLLING || selectedFriends.length < 2 || buttonState === ButtonState.LOADING}
         className={"bg-greenPrimary rounded-lg text-xl" +
           " text-primaryColor font-bold px-4 py-2 m-auto cta-btn" +
