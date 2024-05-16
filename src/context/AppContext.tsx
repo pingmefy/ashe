@@ -61,6 +61,10 @@ const AppProvider = (props: PropsWithChildren<object>) => {
     getFriendList(user)
   }, [user]);
 
+  const memoGames = React.useMemo(() => games, [games])
+  const memoSelectedFriends = React.useMemo(() => selectedFriends, [selectedFriends])
+
+
   return (
     <AppContext.Provider
       value={{
@@ -69,10 +73,10 @@ const AppProvider = (props: PropsWithChildren<object>) => {
         friendList,
         getFriendList,
         user,
-        games,
+        games: memoGames,
         getCommonGames,
         getUserData,
-        selectedFriends,
+        selectedFriends: memoSelectedFriends,
         setSelectedFriends,
       }}
     >

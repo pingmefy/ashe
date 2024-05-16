@@ -2,11 +2,7 @@ import React, {useEffect, useMemo, useRef, useState} from "react";
 import Roulette, {PrizeType} from "react-roulette-pro";
 import {useAppContext} from "../context/AppContext";
 import gameDesign from "../util/RouletteStylePlugin";
-import {GameResponse} from "../util/types";
 
-type GamesContainerProps = {
-  games: GameResponse[];
-}
 enum ButtonState{
   START = "find a game for us",
   ROLLING = "they see me rollin...",
@@ -29,16 +25,31 @@ const getFormedPrizeList = (prizeList: PrizeType[]) => {
 
 const emptyPrizeArray: PrizeType[] = Array(20).fill({id: 1, image: "" }, 0, 20).map((_, index) => ({id: index, image: ""}));
 
-export const GamesContainer = ({games}: GamesContainerProps) => {
+const shuffleArray = (array: any[]) => {
+  const newArray = [];
+  while (array.length) {
+    const randomIndex = Math.floor(Math.random() * array.length),
+      element = array.splice(randomIndex, 1);
+    newArray.push(element[0]);
+  }
+  return newArray
+}
+
+export const GamesContainer = () => {
   const [start, setStart] = useState(false);
   const [buttonState, setButtonState] = useState<ButtonState>(ButtonState.START);
-  const {selectedFriends, getCommonGames} = useAppContext();
+  const {selectedFriends, getCommonGames, games} = useAppContext();
+  const [gameList, setGameList] = useState(games);
+  const memoGameList = useMemo(() => gameList, [gameList]);
   let needToRefreshGames = useRef(false);
 
-  const memoSelectedFriends = useMemo(() => selectedFriends, [selectedFriends])
   useEffect(() => {
-    if(memoSelectedFriends.length > 1) needToRefreshGames.current = true
-  }, [memoSelectedFriends]);
+    if(selectedFriends.length > 1) needToRefreshGames.current = true
+  }, [selectedFriends]);
+
+  useEffect(() => {
+    setGameList(games)
+  }, [games]);
 
   const handleStartButton = () => {
     if(needToRefreshGames.current) {
@@ -52,24 +63,25 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
     if(prizeList.length === 0) return
     const newValue = !start
     newValue ? setButtonState(ButtonState.ROLLING) : setButtonState(ButtonState.START)
+    if(!newValue) {
+      setGameList(shuffleArray([...memoGameList]))
+    }
     setStart(newValue);
   }
-
-  const memoGames = useMemo(() => games, [games]);
 
   const handlePrizeDefined = () => {
     setButtonState(ButtonState.RETRY);
   };
 
   const prizeList: PrizeType[] = useMemo(() => {
-    if(!Array.isArray(memoGames) || !memoGames || memoGames.length === 0) return []
-    return memoGames.map((game, index) => {
+    if(!Array.isArray(memoGameList) || !memoGameList || memoGameList.length === 0) return []
+    return memoGameList.map((game, index) => {
       return {
         id: index,
         image: game.coverUrl
       }
     })
-  }, [memoGames]);
+  }, [memoGameList]);
 
   useEffect(() => {
     handleStart()
@@ -82,7 +94,7 @@ export const GamesContainer = ({games}: GamesContainerProps) => {
   const prizeIndex = formedPrizeList.length;
   return(
     <div className={"bg-primaryColorDark flex flex-col"}>
-      {!Array.isArray(memoGames) || memoGames.length === 0 ?
+      {!Array.isArray(memoGameList) || memoGameList.length === 0 ?
         <Roulette prizes={formedEmptyList}
                   prizeIndex={20} start={false}
                   onPrizeDefined={handlePrizeDefined}

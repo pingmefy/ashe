@@ -9,7 +9,7 @@ import {useAppContext} from "../context/AppContext";
 import 'react-roulette-pro/dist/index.css';
 
 export const App = () => {
-  const { games, friendList, user} = useAppContext();
+  const { friendList, user} = useAppContext();
 
   return (
     <div className={"flex flex-col min-h-[100vh]"}>
@@ -17,7 +17,7 @@ export const App = () => {
       <Header/>
       <Content>
         <ADSection/>
-        <Body games={games} friends={friendList} user={user}/>
+        <Body friends={friendList} user={user}/>
         <ADSection/>
       </Content>
     </div>

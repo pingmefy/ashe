@@ -1,13 +1,11 @@
 import React from "react";
 import {UserSummary} from "steamapi";
-import {GameResponse} from "../util/types";
 import {BodyTitle} from "./BodyTitle";
 import {FriendsSection} from "./FriendsSection";
 import {GamesContainer} from "./GamesContainer";
 import {LoginButton} from "./LoginButton";
 
 type BodyProps = {
-  games: GameResponse[]
   friends: UserSummary[]
   user?: UserSummary | null
 }
@@ -20,11 +18,11 @@ const UnAuthBlock = () => {
   )
 }
 
-export const Body = ({games, friends, user}: BodyProps) => {
+export const Body = ({friends, user}: BodyProps) => {
   return (
     <div className={" w-[58%] bg-primaryColor h-full"}>
       <BodyTitle/>
-      <GamesContainer games={games}/>
+      <GamesContainer/>
       {
         user ? <FriendsSection friends={friends} user={user} /> : <UnAuthBlock/>
       }
