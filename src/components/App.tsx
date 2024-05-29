@@ -1,5 +1,5 @@
 import {ADSection} from "@components/ADSection";
-import {Body} from "@components/Body";
+import {Body} from "./body/Body";
 import {Content} from "@components/Content";
 import {Header} from "@components/Header";
 import {Navbar} from "@components/Navbar";
