@@ -18,13 +18,22 @@ const UnAuthBlock = () => {
   )
 }
 
+const BodyContent = ({friends, user}: {friends: UserSummary[], user: UserSummary}) => {
+  return(
+    <div>
+
+      <GamesContainer/>
+      <FriendsSection friends={friends} user={user} />
+    </div>
+  )
+}
+
 export const Body = ({friends, user}: BodyProps) => {
   return (
     <div className={" w-[58%] bg-primaryColor h-full"}>
       <BodyTitle/>
-      <GamesContainer/>
       {
-        user ? <FriendsSection friends={friends} user={user} /> : <UnAuthBlock/>
+        user ? <BodyContent user={user} friends={friends}/> : <UnAuthBlock/>
       }
     </div>
   )
