@@ -3,6 +3,7 @@ import Confetti from "react-confetti";
 import Roulette, {PrizeType} from "react-roulette-pro";
 import {useAppContext} from "../context/AppContext";
 import gameDesign from "../util/RouletteStylePlugin";
+import {Button} from "./button/Button";
 
 enum ButtonState{
   START = "find a game for us",
@@ -121,11 +122,8 @@ export const GamesContainer = () => {
 
       />}
 
-      <button disabled={buttonState === ButtonState.ROLLING || selectedFriends.length < 2 || buttonState === ButtonState.LOADING}
-        className={"bg-greenPrimary rounded-lg text-xl" +
-          " text-primaryColor font-bold px-4 py-2 m-auto cta-btn" +
-          " disabled:opacity-50 disabled:cursor-not-allowed"}
-        onClick={handleStartButton}>{buttonState}</button>
+      <Button disabled={buttonState === ButtonState.ROLLING || selectedFriends.length < 2 || buttonState === ButtonState.LOADING}
+        onClick={handleStartButton}>{buttonState}</Button>
     </div>
   )
 }
