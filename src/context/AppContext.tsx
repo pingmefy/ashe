@@ -1,7 +1,5 @@
 import React, {
-  createContext,
-  PropsWithChildren,
-  useContext, useEffect, useState,
+  createContext, PropsWithChildren, useContext, useEffect, useState,
 } from "react";
 import {UserSummary} from "steamapi";
 import {useSteamApi} from "../hooks/useSteamApi";
@@ -47,7 +45,7 @@ export const AppContext = createContext(defaultAppContext);
 
 const AppProvider = (props: PropsWithChildren<object>) => {
   const [steamId, setSteamId] = useState<string | null>(null);
-  const {getCommonGames, getFriendList, games, friendList, getUserData, user} = useSteamApi();
+  const {getCommonGames, getFriendList, games, friendList, getUserData, user } = useSteamApi();
   const [selectedFriends, setSelectedFriends] = React.useState<UserSummary[]>([])
 
   useEffect(() => {

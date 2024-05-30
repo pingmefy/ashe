@@ -1,6 +1,3 @@
-type BodyTitleProps = {
-  title: string
-}
 export const BodyTitle = () => {
   return (
     <h1 className="text-lg text-white p-4 m-0 text-center font-bold">

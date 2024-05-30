@@ -26,6 +26,13 @@ body {
   transform: translateY(50%);
 }
 
+.footer-img {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 0;
+}
+
 .roulette-pro-prize-list {
   top: -25px !important;
 }
