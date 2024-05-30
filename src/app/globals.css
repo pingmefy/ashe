@@ -26,6 +26,10 @@ body {
   transform: translateY(50%);
 }
 
+li {
+  width: 120px;
+}
+
 .footer-img {
   position: absolute;
   transform: translateX(-50%);

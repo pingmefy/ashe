@@ -12,14 +12,14 @@ const TopChildren = () => {
   );
 };
 
-const PrizeItem = ({ image }: { image: string }) => {
+const PrizeItem = ({ image, text }: { image: string, text: string | undefined }) => {
   return (
     <div className={'roulette-pro-regular-prize-item-wrapper center '}>
       <div className="roulette-pro-regular-image-wrapper">
         <img
           className="roulette-pro-regular-prize-item-image"
           src={image}
-          alt={'prize item'}
+          alt={text}
         />
       </div>
     </div>
@@ -46,11 +46,10 @@ const gameDesign = () => (): IDesignPlugin => {
         bottomChildren:null,
         prizeItemWidth,
         prizeItemHeight,
-        prizeItemRenderFunction: ({ image }) => {
-
+        prizeItemRenderFunction: ({ image, text }) => {
           return (
             <div className="w-[120px] h-[160px]">
-              {image === "" ? <EmptyPrizeItem/> : <PrizeItem image={image}/>}
+              {image === "" ? <EmptyPrizeItem/> : <PrizeItem image={image} text={text}/>}
             </div>
           );
         },

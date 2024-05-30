@@ -61,5 +61,16 @@ export const useSteamApi = () => {
         console.error('Error fetching data:', error);
       });
   }
-  return {getFriendList, friendList, getCommonGames, games, getUserData, user}
+
+  const getSteamIdFromProfile = async (profileUrl: string) => {
+    const response = await fetch('/api/profileUrl', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({profileUrl: profileUrl})
+    })
+    return await response.json();
+  }
+  return {getFriendList, friendList, getCommonGames, games, getUserData, user, getSteamIdFromProfile}
 }
