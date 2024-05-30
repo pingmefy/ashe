@@ -13,9 +13,12 @@ export const Body = ({friends, user}: BodyProps) => {
       {
         user ? <BodyContent user={user} friends={friends}/> : <UnAuthBlock/>
       }
-      <div className={"footer-img"}>
-        <FooterImage/>
-      </div>
+      {!user ? (
+        <div className={"footer-img z-0"}>
+          <FooterImage/>
+        </div>
+      ) : null }
+
     </div>
   )
 }

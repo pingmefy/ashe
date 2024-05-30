@@ -8,7 +8,8 @@ export default async function handler(
 ) {
   try {
     const steam = new SteamAPI(process.env.API_KEY || "");
-    const steamId = req.body.steamId;
+    const steamId = req.body.steamId.toString();
+    console.log(steamId)
     const userFriends = await steam.getUserSummary(steamId);
     res.status(200).json(userFriends as UserSummary);
   } catch (error: unknown) {
