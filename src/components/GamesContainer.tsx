@@ -69,7 +69,8 @@ export const GamesContainer = () => {
     return memoGameList.map((game, index) => {
       return {
         id: index,
-        image: game.coverUrl
+        image: game.coverUrl,
+        text: game?.name
       }
     })
   }, [memoGameList]);
