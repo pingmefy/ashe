@@ -1,7 +1,7 @@
 import App from "@components/App";
 import React from 'react';
-import '../styles/globals.css';
 import 'react-roulette-pro/dist/index.css';
+import "../styles/globals.css";
 import {AppProvider} from "../context/AppContext";
 
 const Home = () => {
