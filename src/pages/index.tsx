@@ -1,6 +1,6 @@
 import App from "@components/App";
 import React from 'react';
-import '../public/globals.css';
+import '../styles/globals.css';
 import 'react-roulette-pro/dist/index.css';
 import {AppProvider} from "../context/AppContext";
 
