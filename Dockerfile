@@ -23,9 +23,7 @@ WORKDIR /usr/src/app
 # Copy only the necessary files from the builder stage
 COPY --from=builder /usr/src/app/package*.json ./
 COPY --from=builder /usr/src/app/.next ./.next
-COPY --from=builder /usr/src/app/public ./public
-COPY --from=builder /usr/src/app/next.config.js ./
-
+COPY --from=builder /usr/src/app/src/public ./public
 # Install production dependencies
 RUN npm install --only=production
 

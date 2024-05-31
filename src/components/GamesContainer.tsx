@@ -28,7 +28,7 @@ const getFormedPrizeList = (prizeList: PrizeType[]) => {
 
 const emptyPrizeArray: PrizeType[] = Array(20).fill({id: 1, image: "" }, 0, 20).map((_, index) => ({id: index, image: ""}));
 
-const shuffleArray = (array: any[]) => {
+const shuffleArray = (array: unknown[]) => {
   const newArray = [];
   while (array.length) {
     const randomIndex = Math.floor(Math.random() * array.length),
@@ -45,7 +45,7 @@ export const GamesContainer = () => {
   const [gameList, setGameList] = useState(games);
   const [showConfetti, setShowConfetti] = useState(false);
   const memoGameList = useMemo(() => gameList, [gameList]);
-  let needToRefreshGames = useRef(false);
+  const needToRefreshGames = useRef(false);
 
   useEffect(() => {
     if(selectedFriends.length > 1) needToRefreshGames.current = true
@@ -83,6 +83,8 @@ export const GamesContainer = () => {
     const newValue = !start
     newValue ? setButtonState(ButtonState.ROLLING) : setButtonState(ButtonState.START)
     if(!newValue) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       setGameList(shuffleArray([...memoGameList]))
     }
     setStart(newValue);

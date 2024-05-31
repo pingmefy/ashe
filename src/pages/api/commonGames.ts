@@ -3,7 +3,7 @@ import type {NextApiRequest, NextApiResponse} from 'next';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any | { error: string }>
+  res: NextApiResponse
 ) {
   try {
     const mongoClient =  new MongoClient(process.env.MONGODB_URI || "");
@@ -30,10 +30,14 @@ export default async function handler(
       });
 
       const json = await response.json();
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       return json.response.games.map((data) => data.appid);
     };
 
     let results = await Promise.all(steamIds.map(fetchGames));
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     results = results.reduce((common, games) => common.filter(game => games.includes(game)));
 
     const db = mongoClient.db(process.env.MONGODB_DB_NAME);

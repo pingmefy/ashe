@@ -11,7 +11,7 @@ export default async function handler(
     const profileUrl = req.body.profileUrl;
     const params = new URLSearchParams({
       key: process.env.API_KEY || "",
-      vanityurl: "frostfel",
+      vanityurl: profileUrl,
     });
     const url = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?${params.toString()}`;
     console.log(url, "url")

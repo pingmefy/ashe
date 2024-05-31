@@ -4,7 +4,7 @@ import {Content} from "@components/Content";
 import {Header} from "@components/Header";
 import {Navbar} from "@components/Navbar";
 import React from 'react';
-import '../app/globals.css';
+import '../public/globals.css';
 import {useAppContext} from "../context/AppContext";
 import 'react-roulette-pro/dist/index.css';
 
