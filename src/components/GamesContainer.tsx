@@ -70,7 +70,7 @@ export const GamesContainer = () => {
       return {
         id: index,
         image: game.coverUrl,
-        text: game?.name
+        text: game.name
       }
     })
   }, [memoGameList]);

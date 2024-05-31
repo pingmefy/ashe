@@ -1,5 +1,6 @@
 export interface GameResponse {
   coverUrl: string;
+  name: string;
 }
 
 export interface AppDetails {
