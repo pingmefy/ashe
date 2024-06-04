@@ -8,13 +8,15 @@ import Image from 'next/image';
 
 export const Body = ({friends, user}: BodyProps) => {
   return (
-    <div className={" w-[58%] bg-primaryColor h-full flex flex-col gap-7"}>
-      <BodyTitle/>
-      {
-        user ? <BodyContent user={user} friends={friends}/> : <UnAuthBlock/>
-      }
+    <div className={" w-[58%] bg-primaryColor h-full flex items-center justify-center"}>
+      <div className={" w-full h-full flex flex-col gap-7 z-20 relative"}>
+        <BodyTitle/>
+        {
+          user ? <BodyContent user={user} friends={friends}/> : <UnAuthBlock/>
+        }
+      </div>
       <div className={"footer-img z-0"}>
-        <Image src="/bg-bottom.png" alt="Background" width={760} height={299} />
+        <Image src="/bg-bottom.png" alt="Background" width={760} height={299}/>
       </div>
     </div>
   )
