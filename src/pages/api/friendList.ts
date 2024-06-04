@@ -12,7 +12,8 @@ export default async function handler(
     const userFriends = await getUsers(steamId, steam);
     if(userFriends.length === 0) res.status(200).json([]);
     const steamIds = userFriends.map((userFriend) => userFriend.steamID)
-    const summaries = await steam.getUserSummary(steamIds);
+    let summaries = await steam.getUserSummary(steamIds);
+    if(Array.isArray(summaries))summaries = summaries.sort((a, b) => a.nickname.localeCompare(b.nickname))
     res.status(200).json(summaries as UserSummary[]);
   } catch (error: unknown) {
     res.status(500).json({ error: error instanceof Error ? error.message : "Unknown error"});
