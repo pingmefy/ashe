@@ -12,6 +12,11 @@ export const UnAuthBlock = () => {
   const [profileUrl, setProfileUrl] = useState("");
   const { getSteamIdFromProfile } = useSteamApi();
   const {setSteamId} = useAppContext()
+  const handleOnInputChange = useCallback((value: string) => {
+    let url = value.trim();
+    if(url.endsWith("/")) url = url.slice(0, -1);
+    setProfileUrl(url)
+  },[])
   const handleButtonClick = useCallback(async () => {
     if(!isValidSteamProfile(profileUrl)) return; //todo show error instead
     let steamId
@@ -24,11 +29,14 @@ export const UnAuthBlock = () => {
     setSteamId(steamId)
   },[getSteamIdFromProfile, profileUrl])
   return(
-    <div className={"bg-primaryColorDark border-4 border-highlightColor flex flex-col items-center justify-center m-10"}>
-      <div className={"mt-11 w-2/4"}>
-        <Input onChange={(value) => setProfileUrl(value)} value={profileUrl} type={"text"} placeholder={"Your profile url"}/>
+    <div className={"text-center"}>
+      <h1 className={"text-3xl font-bold"}>Paste here your steam <span className={"text-highlightColor"}>profile</span></h1>
+      <div className={"bg-primaryColorDark border-4 border-highlightColor flex flex-col items-center justify-center m-10"}>
+        <div className={"mt-11 w-2/4"}>
+          <Input onChange={(value) => handleOnInputChange(value)} value={profileUrl} type={"text"} placeholder={"Your profile url"}/>
+        </div>
+        <Button onClick={handleButtonClick}>select my friends</Button>
       </div>
-      <Button onClick={handleButtonClick}>select my friends</Button>
     </div>
   )
 }
