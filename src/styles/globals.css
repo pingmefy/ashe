@@ -53,15 +53,6 @@ li {
   margin: auto;
 }
 
-.header-text{
-  font-family: 'Baloo', sans-serif;
-  font-weight: 400;
-  font-size: 2.26rem; /* 36.14px / 16 */
-  background: linear-gradient(to bottom, white, #AAD5F6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;

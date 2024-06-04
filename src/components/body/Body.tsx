@@ -1,9 +1,9 @@
 import React from "react";
-import {FooterImage} from "../../resources/FooterImage";
 import {BodyContent} from "../body_content/BodyContent";
 import {BodyTitle} from "../BodyTitle";
 import {UnAuthBlock} from "../UnAuthBlock";
 import {BodyProps} from "./Body.types";
+import Image from 'next/image';
 
 
 export const Body = ({friends, user}: BodyProps) => {
@@ -15,7 +15,7 @@ export const Body = ({friends, user}: BodyProps) => {
       }
       {!user ? (
         <div className={"footer-img z-0"}>
-          <FooterImage/>
+          <Image src="/bg-bottom.png" alt="Logo" width={760} height={299} />
         </div>
       ) : null }
 
