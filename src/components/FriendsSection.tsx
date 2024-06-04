@@ -21,6 +21,7 @@ export const FriendsSection = ({friends, user,}: FriendsSectionProps) => {
   };
 
   const manageSelectFriend = (selectedFriend: UserSummary) => {
+    if(selectedIds.length === 4) return;
     if(selectedIds.includes(selectedFriend.steamID)) {
       setSelectedFriends(selectedFriends.filter(friend => friend.steamID !== selectedFriend.steamID))
     } else {
