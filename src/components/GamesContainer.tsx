@@ -3,6 +3,7 @@ import Confetti from "react-confetti";
 import Roulette, {PrizeType} from "react-roulette-pro";
 import {useAppContext} from "../context/AppContext";
 import gameDesign from "../util/RouletteStylePlugin";
+import {GameResponse} from "../util/types";
 import {Button} from "./button/Button";
 
 enum ButtonState{
@@ -28,7 +29,7 @@ const getFormedPrizeList = (prizeList: PrizeType[]) => {
 
 const emptyPrizeArray: PrizeType[] = Array(20).fill({id: 1, image: "" }, 0, 20).map((_, index) => ({id: index, image: ""}));
 
-const shuffleArray = (array: unknown[]) => {
+const shuffleArray = (array: GameResponse[]) => {
   const newArray = [];
   while (array.length) {
     const randomIndex = Math.floor(Math.random() * array.length),
@@ -83,8 +84,6 @@ export const GamesContainer = () => {
     const newValue = !start
     newValue ? setButtonState(ButtonState.ROLLING) : setButtonState(ButtonState.START)
     if(!newValue) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       setGameList(shuffleArray([...memoGameList]))
     }
     setStart(newValue);
