@@ -16,6 +16,7 @@
     "react-dom": "^18",
     "react-roulette-pro": "^3.2.2",
     "steamapi": "^3.0.8",
+    "winston": "^3.13.0",
     "yargs": "^17.7.2",
     "zustand": "^4.5.2"
   },
