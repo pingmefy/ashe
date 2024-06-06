@@ -37,7 +37,7 @@ export const useSteamApi = () => {
       .then(response => response.json())
       .then(data => {
         if(data.error) return;
-        setGames(data);
+        setGames(data.data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);

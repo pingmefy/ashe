@@ -13,9 +13,11 @@ export default async function handler(
     await mongoClient.connect();
     const db = mongoClient.db(process.env.MONGODB_DB_NAME);
     const collection = db.collection(process.env.DB_COLLECTION || "steamApps");
-
     const results = await Promise.all(steamIds.map(fetchGames));
-    const commonGames = results.reduce((common, games) => common.filter(game => games.includes(game)));
+    const privacyError = results.find((result) => result.length === 0);
+
+    const commonGames = results.filter((result) => result.length > 0 )
+      .reduce((common, games) => common.filter(game => games.includes(game)));
 
     const query = {appid: {$in: commonGames}};
     let result = await collection.find(query).toArray();
@@ -23,7 +25,11 @@ export default async function handler(
       ...game,
       coverUrl: `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/library_600x900_2x.jpg`,
     }))
-    res.status(200).json(result)
+    const response = {
+      data: result,
+      error: privacyError || null
+    }
+    res.status(200).json(response)
 
   } catch (error: unknown) {
     res.status(500).json({error: error instanceof Error ? error.message : "Unknown error"});
