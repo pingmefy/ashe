@@ -3,6 +3,9 @@ import type {NextApiRequest, NextApiResponse} from 'next';
 import {logger} from "../../util/logger";
 import {APIGameResponse} from "../../util/types";
 
+const PRIVACY_ERROR_MESSAGE = "One or more of your friends has a privacy setting that doesn't allow you to see \"their games.\"\n" +
+  "We show you what games you could play with the others, more info here."
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -27,7 +30,7 @@ export default async function handler(
     }))
     const response = {
       data: result,
-      error: privacyError || null
+      error: privacyError ? PRIVACY_ERROR_MESSAGE : null
     }
     res.status(200).json(response)
 
