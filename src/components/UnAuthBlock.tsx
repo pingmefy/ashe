@@ -29,11 +29,11 @@ export const UnAuthBlock = () => {
     setSteamId(steamId)
   },[getSteamIdFromProfile, profileUrl])
   return(
-    <div className={"text-center"}>
+    <div className={"text-center flex flex-col gap-8"}>
       <h1 className={"text-3xl font-bold"}>Paste here your steam <span className={"text-highlightColor"}>profile</span></h1>
-      <div className={"bg-primaryColorDark border-4 border-highlightColor flex flex-col items-center justify-center m-10"}>
-        <div className={"mt-11 w-2/4"}>
-          <Input onChange={(value) => handleOnInputChange(value)} value={profileUrl} type={"text"} placeholder={"Your profile url"}/>
+      <div className={"bg-primaryColorDark border-4 border-highlightColor flex flex-col items-center justify-center "}>
+        <div className={"mt-12 w-full px-12"}>
+          <Input onChange={(value) => handleOnInputChange(value)} value={profileUrl} type={"text"} placeholder={"https://steamcommunity.com/id/yourusername/"}/>
         </div>
         <Button onClick={handleButtonClick}>select my friends</Button>
       </div>
