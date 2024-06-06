@@ -30,7 +30,7 @@ export const FriendsSection = ({friends, user,}: FriendsSectionProps) => {
   };
 
   return (
-    <div className={"bg-primaryColorDark m-10 p-4 flex flex-col"}>
+    <div className={"bg-primaryColorDark mx-0 my-10 lg:m-10 p-4 flex flex-col"}>
       <span className={"text-white m-auto"}>choose the friends you want to play with</span>
       <div className={"flex gap-2 p-4"}>
         {selectedFriends.map((user) => {
