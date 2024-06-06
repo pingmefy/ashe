@@ -32,7 +32,7 @@ export const FriendsSection = ({friends, user,}: FriendsSectionProps) => {
   return (
     <div className={"bg-primaryColorDark mx-0 my-10 lg:m-10 p-4 flex flex-col"}>
       <span className={"text-white m-auto"}>choose the friends you want to play with</span>
-      <div className={"flex gap-2 p-4"}>
+      <div className={"flex gap-2 p-4 overflow-auto"}>
         {selectedFriends.map((user) => {
           return <FriendItem key={user.steamID} user={user} selected={true} onClick={() => handleClickOnFriend(user)}/>
         })}
