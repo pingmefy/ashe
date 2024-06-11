@@ -40,7 +40,6 @@ export default async function handler(
 
 const fetchGames = async (steamId: string): Promise<string[]> => {
   try {
-    logger.info(`Fetching games for user with steamId ${steamId}`)
     const params = new URLSearchParams({
       steamid: steamId,
       include_appinfo: 'false',
@@ -58,7 +57,6 @@ const fetchGames = async (steamId: string): Promise<string[]> => {
       },
     });
     const json = await response.json() as APIGameResponse;
-    logger.info(`Fetched ${json.response.games.length} games for user with steamId ${steamId}`)
     return json.response.games.map((data) => data.appid);
   } catch (e: unknown) {
     logger.error(`Failed to get games for user with steamId ${steamId}`)
