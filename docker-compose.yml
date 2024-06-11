@@ -9,3 +9,23 @@ services:
     restart: always
     env_file:
       - .env
+    networks:
+      - playto
+
+  mongodb:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+      - ./backup:/backup
+      - ./init:/docker-entrypoint-initdb.d
+    networks:
+      - playto
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongo-data:
+
+networks:
+  playto:
