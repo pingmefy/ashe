@@ -19,6 +19,9 @@ services:
       - mongo-data:/data/db
       - ./backup:/backup
       - ./init:/docker-entrypoint-initdb.d
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: playtoadmin
+      MONGO_INITDB_ROOT_PASSWORD: v13g0+pr0j3ct0
     networks:
       - playto
     ports:
