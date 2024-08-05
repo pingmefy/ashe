@@ -16,7 +16,6 @@ export default async function handler(
     const db = mongoClient.db(process.env.MONGODB_DB_NAME);
     const collection = db.collection(process.env.DB_COLLECTION || "steamApps");
     const results = await Promise.all(steamIds.map(fetchGames));
-    const privacyError = results.find((result) => result.length === 0);
     const usersWithPrivacyError = results.map((result, index) => result.length === 0 ? steamIds[index] : "").filter((user) => user !== "");
 
     const commonGames = results.filter((result) => result.length > 0 )
@@ -28,14 +27,16 @@ export default async function handler(
       ...game,
       coverUrl: `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/library_600x900_2x.jpg`,
     }))
-    const response: APICommonGamesResponse = {
-      data: result,
-      error: {
-        code: privacyError ? PRIVACY_ERROR_MESSAGE_KEY : "",
+
+    const error = usersWithPrivacyError.length > 0 ? {
+        code:  PRIVACY_ERROR_MESSAGE_KEY ,
         data: {
           users: usersWithPrivacyError
         },
-      }
+    } : null;
+    const response: APICommonGamesResponse = {
+      data: result,
+      error
     }
     res.status(200).json(response)
 
