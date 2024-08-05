@@ -28,8 +28,7 @@ export const FriendItem = ({user, selected, onClick}: FriendItemProps) => {
       onClick={onClick}
       className={`flex px-2.5 py-4 ${selected ? "border-2 border-highlightColor" : "border border-darkGray"} justify-between items-center flex-1 cursor-pointer`}>
       <div className={"flex gap-1.5 items-center"}>
-        <Image src={user.avatar.medium} alt="user-avatar" width={32} height={32}
-             className={"border-gray border-solid border w-[32px] h-[32px]"}/>
+        <img src={user.avatar.medium} alt="user-avatar" className={"border-gray border-solid border w-[32px] h-[32px]"}/>
         <span>{user.nickname}</span>
       </div>
       {selected ? <CheckIcon/> : null}
