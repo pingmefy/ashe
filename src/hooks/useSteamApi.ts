@@ -36,7 +36,6 @@ export const useSteamApi = () => {
     })
       .then(response => response.json())
       .then(data => {
-        if(data.error) return;
         setGames(data.data);
       })
       .catch(error => {

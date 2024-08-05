@@ -1,6 +1,5 @@
 import React from "react";
 import { UserSummary } from "steamapi";
-import Image from 'next/image';
 import {AddIcon, CheckIcon} from "../resources/Icons";
 
 type FriendItemProps = {
