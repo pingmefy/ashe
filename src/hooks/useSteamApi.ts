@@ -1,15 +1,16 @@
 import {useState} from "react";
 import {UserSummary} from "steamapi";
-import {GameResponse} from "../util/types";
+import {APIError, GameResponse} from "../util/types";
 
 export const useSteamApi = () => {
   const [games, setGames] = useState<GameResponse[]>([]);
   const [user, setUser] = useState<UserSummary | null>(null);
   const [friendList, setFriendList] = useState<UserSummary[]>([]);
+  const [error, setError] = useState<APIError | null>(null);
 
   const getFriendList = (user: UserSummary) => {
     if(user === null) return;
-    fetch('/api/friendList', {
+    fetchAPI('/api/friendList', {
       method: 'POST', // Set the method to POST
       headers: {
         'Content-Type': 'application/json', // Set the Content-Type header to application/json
@@ -18,7 +19,6 @@ export const useSteamApi = () => {
     })
       .then(response => response.json())
       .then(data => {
-        if(data.error) return;
         setFriendList(data as UserSummary[]);
       })
       .catch(error => {
@@ -27,7 +27,7 @@ export const useSteamApi = () => {
   }
 
   const getCommonGames = (steamIds: string[] = []) => {
-    fetch('/api/commonGames', {
+    fetchAPI('/api/commonGames', {
       method: 'POST', // Set the method to POST
       headers: {
         'Content-Type': 'application/json', // Set the Content-Type header to application/json
@@ -36,6 +36,7 @@ export const useSteamApi = () => {
     })
       .then(response => response.json())
       .then(data => {
+        if(data.error !== null) setError(data.error);
         setGames(data.data);
       })
       .catch(error => {
@@ -44,7 +45,7 @@ export const useSteamApi = () => {
   }
 
   const getUserData = (steamId: string) => {
-    fetch('/api/userData', {
+    fetchAPI('/api/userData', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +54,6 @@ export const useSteamApi = () => {
     })
       .then(response => response.json())
       .then(data => {
-        if(data.error) return;
         setUser(data);
       })
       .catch(error => {
@@ -62,7 +62,7 @@ export const useSteamApi = () => {
   }
 
   const getSteamIdFromProfile = async (profileUrl: string) => {
-    const response = await fetch('/api/profileUrl', {
+    const response = await fetchAPI('/api/profileUrl', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -71,5 +71,10 @@ export const useSteamApi = () => {
     })
     return await response.json();
   }
-  return {getFriendList, friendList, getCommonGames, games, getUserData, user, getSteamIdFromProfile}
+
+  const fetchAPI = (input: string, init: RequestInit): Promise<Response> => {
+    setError(null);
+    return fetch(input, init)
+  }
+  return {getFriendList, friendList, getCommonGames, games, getUserData, user, getSteamIdFromProfile, error}
 }
