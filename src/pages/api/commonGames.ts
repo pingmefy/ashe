@@ -1,7 +1,7 @@
 import {MongoClient} from "mongodb";
 import type {NextApiRequest, NextApiResponse} from 'next';
 import {logger} from "../../util/logger";
-import {APIGameResponse} from "../../util/types";
+import {APICommonGamesResponse, APIGameResponse} from "../../util/types";
 
 const PRIVACY_ERROR_MESSAGE_KEY = "PRIVACY_ERROR_MESSAGE"
 
@@ -17,6 +17,7 @@ export default async function handler(
     const collection = db.collection(process.env.DB_COLLECTION || "steamApps");
     const results = await Promise.all(steamIds.map(fetchGames));
     const privacyError = results.find((result) => result.length === 0);
+    const usersWithPrivacyError = results.map((result, index) => result.length === 0 ? steamIds[index] : "").filter((user) => user !== "");
 
     const commonGames = results.filter((result) => result.length > 0 )
       .reduce((common, games) => common.filter(game => games.includes(game)));
@@ -27,9 +28,14 @@ export default async function handler(
       ...game,
       coverUrl: `https://steamcdn-a.akamaihd.net/steam/apps/${game.appid}/library_600x900_2x.jpg`,
     }))
-    const response = {
+    const response: APICommonGamesResponse = {
       data: result,
-      error: privacyError ? PRIVACY_ERROR_MESSAGE_KEY : null
+      error: {
+        code: privacyError ? PRIVACY_ERROR_MESSAGE_KEY : "",
+        data: {
+          users: usersWithPrivacyError
+        },
+      }
     }
     res.status(200).json(response)
 
