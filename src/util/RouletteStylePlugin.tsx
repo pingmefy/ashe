@@ -13,7 +13,7 @@ const TopChildren = () => {
 
 const PrizeItem = ({ image, text }: { image: string, text: string | undefined }) => {
   return (
-    <div className={'roulette-pro-regular-prize-item-wrapper center '}>
+    <div className={'roulette-pro-regular-prize-item-wrapper center'}>
       <div className="roulette-pro-regular-image-wrapper">
         <img src={image} alt={text || "Game"} className="roulette-pro-regular-prize-item-image w-[120px] h-[160px]"/>
       </div>
@@ -49,7 +49,7 @@ const gameDesign = () => (): IDesignPlugin => {
           );
         },
         classes: {
-          prizeItem: "p-2 w-[120px] h-[160px]",
+          prizeItem: "w-[120px] h-[160px]",
         },
       };
     };

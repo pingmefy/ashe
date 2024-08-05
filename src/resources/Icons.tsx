@@ -76,7 +76,7 @@ export const SteamIcon = () => {
 
 export const EmptyGameIcon = () => {
   return (
-    <svg width="120" height="161" viewBox="0 0 120 161" fill="none"
+    <svg width="120" height="160" viewBox="0 0 120 161" fill="none"
          xmlns="http://www.w3.org/2000/svg">
       <rect x="0.5" y="1" width="119" height="159" fill="#1C2939"/>
       <rect x="0.5" y="1" width="119" height="159" stroke="#A6A6A6"

@@ -26,6 +26,12 @@ body {
   transform: translateY(50%);
 }
 
+.roulette-btn {
+  z-index: 10;
+  position: relative;
+  transform: translateY(-50%);
+}
+
 li {
   width: 120px;
 }
@@ -39,6 +45,11 @@ li {
 
 .roulette-pro-prize-list {
   top: -25px !important;
+}
+
+.roulette-pro-wrapper {
+  background-color: #101A23;
+  padding-bottom: 1rem;
 }
 
 .arrow {

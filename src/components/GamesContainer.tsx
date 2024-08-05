@@ -4,7 +4,7 @@ import Roulette, {PrizeType} from "react-roulette-pro";
 import {useAppContext} from "../context/AppContext";
 import gameDesign from "../util/RouletteStylePlugin";
 import {GameResponse} from "../util/types";
-import {Button} from "./button/Button";
+import {Button, ButtonClass} from "./button/Button";
 
 enum ButtonState{
   START = "find a game for us",
@@ -101,7 +101,7 @@ export const GamesContainer = () => {
 
   const prizeIndex = formedPrizeList.length;
   return(
-    <div className={"bg-primaryColorDark flex flex-col"}>
+    <div className={"flex flex-col"}>
       {!Array.isArray(memoGameList) || memoGameList.length === 0 ?
         <Roulette prizes={formedEmptyList}
                   prizeIndex={20} start={false}
@@ -124,7 +124,7 @@ export const GamesContainer = () => {
 
       />}
 
-      <Button disabled={buttonState === ButtonState.ROLLING || selectedFriends.length < 2 || buttonState === ButtonState.LOADING}
+      <Button disabled={buttonState === ButtonState.ROLLING || selectedFriends.length < 2 || buttonState === ButtonState.LOADING} buttonClass={ButtonClass.ROULETTE}
         onClick={handleStartButton}>{buttonState}</Button>
     </div>
   )
