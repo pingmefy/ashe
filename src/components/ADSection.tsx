@@ -10,7 +10,7 @@ export const ADSection = () => {
   }, []);
   return (
     <div className={"hidden lg:block min-w-[18.75rem] w-[21%]"}>
-      <script async
+      {/*<script async
               src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4760699435451370"
               crossOrigin="anonymous"></script>
       <ins className="adsbygoogle"
@@ -18,7 +18,7 @@ export const ADSection = () => {
            data-ad-client="ca-pub-4760699435451370"
            data-ad-slot="4137614929"
            data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
+           data-full-width-responsive="true"></ins>*/}
     </div>
   )
 }
