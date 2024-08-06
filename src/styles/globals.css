@@ -13,10 +13,6 @@ body {
   background: #1C2939;
 }
 
-.roulette-pro-prize-list.with-animation.horizontal {
-  /*animation: none !important;*/
-}
-
 .roulette-pro-prize-list {
   gap: 1rem !important;
 }
@@ -32,8 +28,20 @@ body {
   transform: translateY(-50%);
 }
 
+.roulette-pro-regular-prize-item-wrapper{
+  height: 100%;
+  width: 100%;
+}
+
+.roulette-pro-regular-prize-item-wrapper img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 li {
   width: 120px;
+  height: 160px;
 }
 
 .footer-img {

@@ -105,7 +105,6 @@ export const GamesContainer = () => {
       {!Array.isArray(memoGameList) || memoGameList.length === 0 ?
         <Roulette prizes={formedEmptyList}
                   prizeIndex={20} start={false}
-                  onPrizeDefined={handlePrizeDefined}
                   designPlugin={gameDesign()}
         />
         :
