@@ -1,9 +1,10 @@
 import {MongoClient} from "mongodb";
 import type {NextApiRequest, NextApiResponse} from 'next';
 import {logger} from "../../util/logger";
-import {APICommonGamesResponse, APIGameResponse} from "../../util/types";
+import {
+  APICommonGamesResponse, APIErrors, APIGameResponse
+} from "../../util/types";
 
-const PRIVACY_ERROR_MESSAGE_KEY = "PRIVACY_ERROR_MESSAGE"
 
 export default async function handler(
   req: NextApiRequest,
@@ -29,7 +30,7 @@ export default async function handler(
     }))
 
     const error = usersWithPrivacyError.length > 0 ? {
-        code:  PRIVACY_ERROR_MESSAGE_KEY ,
+        code:  APIErrors.PRIVACY_ERROR_MESSAGE,
         data: {
           users: usersWithPrivacyError
         },

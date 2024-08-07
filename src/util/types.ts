@@ -28,3 +28,7 @@ export interface APIError{
 export interface PrivacyErrorData {
   users: string[]
 }
+
+export enum APIErrors {
+  PRIVACY_ERROR_MESSAGE = "PRIVACY_ERROR_MESSAGE"
+}
