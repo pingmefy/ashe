@@ -102,19 +102,12 @@ export const GamesContainer = () => {
   const prizeIndex = formedPrizeList.length;
   return(
     <div className={"flex flex-col"}>
-      {!Array.isArray(memoGameList) || memoGameList.length === 0 ?
-        <Roulette prizes={formedEmptyList}
-                  prizeIndex={20} start={false}
-                  designPlugin={gameDesign()}
-        />
-        :
-        <Roulette prizes={formedPrizeList}
+        <Roulette prizes={formedPrizeList.length > 0 ? formedPrizeList : formedEmptyList}
                   prizeIndex={prizeIndex} start={start}
                   onPrizeDefined={handlePrizeDefined}
+                  options={{stopInCenter: true}}
                   designPlugin={gameDesign()}
         />
-
-      }
       {showConfetti && <Confetti
           width={window.outerWidth}
           height={window.outerHeight}
