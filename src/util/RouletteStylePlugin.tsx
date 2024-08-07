@@ -31,7 +31,7 @@ const EmptyPrizeItem = () => {
 }
 
 const gameDesign = () => (): IDesignPlugin => {
-      const prizeItemWidth: number = 120;
+      const prizeItemWidth: number = 130;
       const prizeItemHeight: number = 160;
 
       return {
