@@ -14,7 +14,9 @@ const config: Config = {
       headerColor: "rgba(217, 217, 217, 0.1)",
       greenPrimary: "#BEEE11",
       gray: "#A6A6A6",
-      darkGray: "#323232"
+      darkGray: "#323232",
+      errorBg: "#DE0050",
+      errorText: "#ffffff"
     },
     extend: {
       backgroundImage: {

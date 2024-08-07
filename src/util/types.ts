@@ -21,7 +21,7 @@ export interface APIGames {
 }
 
 export interface APIError{
-  code: string,
+  code: APIErrorCode,
   data: PrivacyErrorData
 }
 
@@ -29,6 +29,6 @@ export interface PrivacyErrorData {
   users: string[]
 }
 
-export enum APIErrors {
+export enum APIErrorCode {
   PRIVACY_ERROR_MESSAGE = "PRIVACY_ERROR_MESSAGE"
 }

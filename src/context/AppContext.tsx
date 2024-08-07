@@ -3,7 +3,7 @@ import React, {
 } from "react";
 import {UserSummary} from "steamapi";
 import {useSteamApi} from "../hooks/useSteamApi";
-import {GameResponse} from "../util/types";
+import {APIError, GameResponse} from "../util/types";
 
 type AppContextType = {
   steamId: string | null;
@@ -16,6 +16,7 @@ type AppContextType = {
   getUserData: (steamId: string) => void;
   selectedFriends: UserSummary[];
   setSelectedFriends: (friends: UserSummary[]) => void;
+  error: APIError | null;
 };
 
 const defaultAppContext: AppContextType = {
@@ -39,13 +40,14 @@ const defaultAppContext: AppContextType = {
   setSelectedFriends: () => {
     return;
   },
+  error: null,
 };
 
 export const AppContext = createContext(defaultAppContext);
 
 const AppProvider = (props: PropsWithChildren<object>) => {
   const [steamId, setSteamId] = useState<string | null>(null);
-  const {getCommonGames, getFriendList, games, friendList, getUserData, user } = useSteamApi();
+  const {getCommonGames, getFriendList, games, friendList, getUserData, user, error } = useSteamApi();
   const [selectedFriends, setSelectedFriends] = React.useState<UserSummary[]>([])
 
   useEffect(() => {
@@ -76,6 +78,7 @@ const AppProvider = (props: PropsWithChildren<object>) => {
         getUserData,
         selectedFriends: memoSelectedFriends,
         setSelectedFriends,
+        error
       }}
     >
       {props.children}

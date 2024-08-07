@@ -2,7 +2,7 @@ import {MongoClient} from "mongodb";
 import type {NextApiRequest, NextApiResponse} from 'next';
 import {logger} from "../../util/logger";
 import {
-  APICommonGamesResponse, APIErrors, APIGameResponse
+  APICommonGamesResponse, APIErrorCode, APIGameResponse
 } from "../../util/types";
 
 
@@ -30,7 +30,7 @@ export default async function handler(
     }))
 
     const error = usersWithPrivacyError.length > 0 ? {
-        code:  APIErrors.PRIVACY_ERROR_MESSAGE,
+        code:  APIErrorCode.PRIVACY_ERROR_MESSAGE,
         data: {
           users: usersWithPrivacyError
         },
