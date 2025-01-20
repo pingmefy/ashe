@@ -13,9 +13,11 @@ body {
   background: #1C2939;
 }
 
+
 .roulette-pro-prize-list {
-  gap: 1rem !important;
+  gap: 16px !important;
 }
+
 
 .cta-btn {
   position: relative;
@@ -40,8 +42,8 @@ body {
 }
 
 li {
-  width: 120px;
-  height: 160px;
+  width: 136px;
+  height: 180px;
 }
 
 .footer-img {

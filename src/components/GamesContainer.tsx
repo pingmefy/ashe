@@ -99,7 +99,7 @@ export const GamesContainer = () => {
     needToRefreshGames.current = false
   }, [prizeList]);
 
-  const prizeIndex = formedPrizeList.length;
+  const prizeIndex = formedPrizeList.length / 2;
   return(
     <div className={"flex flex-col"}>
         <Roulette prizes={formedPrizeList.length > 0 ? formedPrizeList : formedEmptyList}
