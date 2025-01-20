@@ -13,7 +13,7 @@ const TopChildren = () => {
 
 const PrizeItem = ({ image, text }: { image: string, text: string | undefined }) => {
   return (
-    <div className={'roulette-pro-regular-prize-item-wrapper center'}>
+    <div className={'roulette-pro-regular-prize-item-wrapper center'} style={{width: 120, height: 160}}>
       <div className="roulette-pro-regular-image-wrapper">
         <img src={image} alt={text || "Game"} className="roulette-pro-regular-prize-item-image"/>
       </div>
@@ -23,7 +23,7 @@ const PrizeItem = ({ image, text }: { image: string, text: string | undefined })
 
 const EmptyPrizeItem = () => {
   return (
-    <div style={{width: 136, height: 160}}>
+    <div style={{width: 120, height: 160}}>
       <EmptyGameIcon/>
     </div>
   );
@@ -31,8 +31,8 @@ const EmptyPrizeItem = () => {
 }
 
 const gameDesign = () => (): IDesignPlugin => {
-      const prizeItemWidth: number = 136;
-      const prizeItemHeight: number = 180;
+      const prizeItemWidth: number = 120;
+      const prizeItemHeight: number = 160;
 
       return {
         topChildren: (

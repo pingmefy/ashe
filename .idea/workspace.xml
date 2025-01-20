@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="feat: error management for privacy">
+    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="fix: roulette selection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GamesContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GamesContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/RouletteStylePlugin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/RouletteStylePlugin.tsx" afterDir="false" />
     </list>
@@ -111,15 +110,7 @@
       <workItem from="1726847581969" duration="1763000" />
       <workItem from="1727797415428" duration="3222000" />
       <workItem from="1728913254210" duration="601000" />
-      <workItem from="1737385853612" duration="2059000" />
-    </task>
-    <task id="LOCAL-00051" summary="ts eslint">
-      <option name="closed" value="true" />
-      <created>1717165738724</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1717165738724</updated>
+      <workItem from="1737385853612" duration="4450000" />
     </task>
     <task id="LOCAL-00052" summary="fixes to build">
       <option name="closed" value="true" />
@@ -505,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723075058466</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="fix: roulette selection">
+      <option name="closed" value="true" />
+      <created>1737387927950</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1737387927950</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sending proper error if needed" />
     <MESSAGE value="better send a key and format it on the frontend" />
     <MESSAGE value="update dockerfile" />
     <MESSAGE value="added sharp package" />
@@ -548,6 +546,7 @@
     <MESSAGE value="fix width, calculating better the final position" />
     <MESSAGE value="refactor: moved error into types" />
     <MESSAGE value="feat: error management for privacy" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: error management for privacy" />
+    <MESSAGE value="fix: roulette selection" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: roulette selection" />
   </component>
 </project>
