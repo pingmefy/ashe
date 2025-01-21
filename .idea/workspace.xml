@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="remove spacings to center properly">
-      <change afterPath="$PROJECT_DIR$/src/actions/get-steam-id.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/form/SteamIdForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/paths.ts" afterDir="false" />
+    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="initial refactor, moving to serverside and server actions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ADSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ADSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UnAuthBlock.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/body/Body.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/body/Body.types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/ProfileUrlUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ProfileUrlUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useSteamApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useSteamApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,15 +111,7 @@
       <workItem from="1727797415428" duration="3222000" />
       <workItem from="1728913254210" duration="601000" />
       <workItem from="1737385853612" duration="6575000" />
-      <workItem from="1737456949161" duration="8230000" />
-    </task>
-    <task id="LOCAL-00053" summary="rename dir">
-      <option name="closed" value="true" />
-      <created>1717168924918</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1717168924918</updated>
+      <workItem from="1737456949161" duration="8431000" />
     </task>
     <task id="LOCAL-00054" summary="fix import">
       <option name="closed" value="true" />
@@ -518,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737392691574</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="initial refactor, moving to serverside and server actions">
+      <option name="closed" value="true" />
+      <created>1737473312765</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1737473312765</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,7 +523,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update dockerfile" />
     <MESSAGE value="added sharp package" />
     <MESSAGE value="update docker-compose" />
     <MESSAGE value="use Image class as improvement" />
@@ -561,6 +547,7 @@
     <MESSAGE value="feat: error management for privacy" />
     <MESSAGE value="fix: roulette selection" />
     <MESSAGE value="remove spacings to center properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove spacings to center properly" />
+    <MESSAGE value="initial refactor, moving to serverside and server actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial refactor, moving to serverside and server actions" />
   </component>
 </project>
