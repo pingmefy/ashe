@@ -26,6 +26,7 @@ export const isValidSteamProfile = (text: string): boolean => {
 }
 
 export const getKeyFromProfileUrl = (url: string): string => {
-  const splitUrl = url.split('/');
+  const formattedUrl = url.endsWith("/") ? url.slice(0, -1) : url;
+  const splitUrl = formattedUrl.split('/');
   return splitUrl[splitUrl.length - 1];
 }

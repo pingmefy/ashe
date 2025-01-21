@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="fix: roulette selection">
+    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="remove spacings to center properly">
+      <change afterPath="$PROJECT_DIR$/src/actions/get-steam-id.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/form/SteamIdForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/paths.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/RouletteStylePlugin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/RouletteStylePlugin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ADSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ADSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UnAuthBlock.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/body/Body.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/body/Body.types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/ProfileUrlUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ProfileUrlUtils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,18 +29,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feat/steamid-from-profile-url" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -38,32 +51,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/alvaro/Documents/Proyectos/viego_project/randomefy/public&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/alvaro/Documents/Proyectos/viego_project/randomefy/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "pages-to-app-dir",
+    "last_opened_file_path": "/Users/alvaro/Documents/Proyectos/viego_project/randomefy/public",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "ts.external.directory.path": "/Users/alvaro/Documents/Proyectos/viego_project/randomefy/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/pages/api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/steamId" />
+      <recent name="$PROJECT_DIR$/src/components/form" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/public" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/app/public" />
-      <recent name="$PROJECT_DIR$/src/components/button" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -110,15 +123,8 @@
       <workItem from="1726847581969" duration="1763000" />
       <workItem from="1727797415428" duration="3222000" />
       <workItem from="1728913254210" duration="601000" />
-      <workItem from="1737385853612" duration="4450000" />
-    </task>
-    <task id="LOCAL-00052" summary="fixes to build">
-      <option name="closed" value="true" />
-      <created>1717167353911</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1717167353911</updated>
+      <workItem from="1737385853612" duration="6575000" />
+      <workItem from="1737456949161" duration="8230000" />
     </task>
     <task id="LOCAL-00053" summary="rename dir">
       <option name="closed" value="true" />
@@ -504,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737387927950</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="remove spacings to center properly">
+      <option name="closed" value="true" />
+      <created>1737392691574</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1737392691574</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="better send a key and format it on the frontend" />
     <MESSAGE value="update dockerfile" />
     <MESSAGE value="added sharp package" />
     <MESSAGE value="update docker-compose" />
@@ -547,6 +560,7 @@
     <MESSAGE value="refactor: moved error into types" />
     <MESSAGE value="feat: error management for privacy" />
     <MESSAGE value="fix: roulette selection" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: roulette selection" />
+    <MESSAGE value="remove spacings to center properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove spacings to center properly" />
   </component>
 </project>
