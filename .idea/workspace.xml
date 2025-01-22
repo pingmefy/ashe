@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="remove not needed API call from useSteamApi">
-      <change afterPath="$PROJECT_DIR$/src/actions/get-user-data.ts" afterDir="false" />
+    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="wip: refactoring">
+      <change afterPath="$PROJECT_DIR$/src/actions/get-user-friends.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/grid-utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ADSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ADSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Content.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GamesContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GamesContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/body_content/BodyContent.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/body_content/BodyContent.types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +54,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/alvaro/Documents/Proyectos/viego_project/randomefy/node_modules/prettier",
     "settings.editor.selected.configurable": "settings.typescriptcompiler",
     "ts.external.directory.path": "/Users/alvaro/Documents/Proyectos/viego_project/randomefy/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -121,14 +119,7 @@
       <workItem from="1728913254210" duration="601000" />
       <workItem from="1737385853612" duration="6575000" />
       <workItem from="1737456949161" duration="14315000" />
-    </task>
-    <task id="LOCAL-00055" summary="creatd app">
-      <option name="closed" value="true" />
-      <created>1717169432917</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1717169432917</updated>
+      <workItem from="1737553585807" duration="7200000" />
     </task>
     <task id="LOCAL-00056" summary="remove import from app.tsx">
       <option name="closed" value="true" />
@@ -514,7 +505,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737473360578</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="wip: refactoring">
+      <option name="closed" value="true" />
+      <created>1737553625676</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1737553625676</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update docker-compose" />
     <MESSAGE value="use Image class as improvement" />
     <MESSAGE value="remove excesive logs" />
     <MESSAGE value="fix typo" />
@@ -557,6 +555,7 @@
     <MESSAGE value="remove spacings to center properly" />
     <MESSAGE value="initial refactor, moving to serverside and server actions" />
     <MESSAGE value="remove not needed API call from useSteamApi" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove not needed API call from useSteamApi" />
+    <MESSAGE value="wip: refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip: refactoring" />
   </component>
 </project>

@@ -1,34 +1,38 @@
-
 export interface GameResponse {
   coverUrl: string;
   name: string;
 }
 
 export interface APIGameResponse {
-  response: APIGames
+  response: APIGames;
 }
 
 export interface APICommonGamesResponse {
   data: unknown;
-  error: APIError | null
-
+  error: APIError | null;
 }
 
 export interface APIGames {
   games: {
     appid: string;
-  }[]
+  }[];
 }
 
-export interface APIError{
-  code: APIErrorCode,
-  data: PrivacyErrorData
+export interface APIError {
+  code: APIErrorCode;
+  data: PrivacyErrorData;
 }
 
 export interface PrivacyErrorData {
-  users: string[]
+  users: string[];
 }
 
 export enum APIErrorCode {
-  PRIVACY_ERROR_MESSAGE = "PRIVACY_ERROR_MESSAGE"
+  PRIVACY_ERROR_MESSAGE = "PRIVACY_ERROR_MESSAGE",
 }
+
+export type SearchParams = { [key: string]: string | string[] | undefined };
+
+export type SteamIdParams = {
+  "steam-id": string;
+};

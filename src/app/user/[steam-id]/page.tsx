@@ -1,21 +1,77 @@
-"use server"
+"use server";
 
-import {FriendsSection} from "@components/FriendsSection";
-import {GamesContainer} from "@components/GamesContainer";
+import { FriendItem } from "@components/FriendItem";
+import { GamesContainer } from "@components/GamesContainer";
 import React from "react";
-import {UserSummary} from "steamapi";
+import { UserSummary } from "steamapi";
 import getUserData from "../../../actions/get-user-data";
-import 'react-roulette-pro/dist/index.css';
+import "react-roulette-pro/dist/index.css";
+import getUserFriends from "../../../actions/get-user-friends";
+import { getGridClassForFriends } from "../../../util/grid-utils";
+import { SearchParams, SteamIdParams } from "../../../util/types";
 
-const UserPage = async () => {
-  const user: UserSummary  = await getUserData("76561197998388059")
-  //todo get selectedFriends from search params
+type Props = {
+  params: SteamIdParams;
+  searchParams: SearchParams;
+};
+
+const UserPage = async (props: Props) => {
+  const { params } = props;
+  const { "steam-id": steamId } = params;
+  const user: UserSummary = await getUserData(steamId);
+  const friends: UserSummary[] = await getUserFriends(steamId);
+  const selectedFriendIds: string[] = []; //todo get from search params
+  const selectedFriends: UserSummary[] = []; //todo get filtering friends by ids
+  const friendListVisible: boolean = true; //todo get from search params
+  console.log(user);
   return (
     <>
-      <GamesContainer selectedFriendSteamIds={[]}/>
-      <FriendsSection friends={[]}  user={user} />
+      <GamesContainer selectedFriendSteamIds={[]} />
+      <div
+        className={"bg-primaryColorDark mx-0 my-10 lg:m-10 p-4 flex flex-col"}
+      >
+        <span className={"text-white m-auto"}>
+          choose the friends you want to play with
+        </span>
+        <div className={"flex gap-2 p-4 overflow-auto"}>
+          <FriendItem
+            key={user.steamID}
+            avatar={user.avatar.medium}
+            nickname={user.nickname}
+            selected={true}
+          />
+          {selectedFriends.map((user) => {
+            return (
+              <FriendItem
+                key={user.steamID}
+                avatar={user.avatar.medium}
+                nickname={user.nickname}
+                selected={true}
+              />
+            );
+          })}
+          {selectedFriends.length < 4 && <FriendItem />}
+        </div>
+        {friendListVisible && (
+          <div className={"flex flex-col gap-4 pt-0 p-4"}>
+            <div className={"h-[1px] bg-greenPrimary w-[90%] m-auto"} />
+            <div className={`grid ${getGridClassForFriends(friends)} gap-4`}>
+              {friends.map((friend, index) => {
+                return (
+                  <FriendItem
+                    key={index}
+                    avatar={friend.avatar.medium}
+                    nickname={friend.nickname}
+                    selected={selectedFriendIds.includes(friend.steamID)}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default UserPage
+export default UserPage;
