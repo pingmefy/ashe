@@ -19,6 +19,7 @@ type Props = {
 const UserPage = async (props: Props) => {
   const { params, searchParams } = props;
   const { "steam-id": steamId } = params;
+  //todo cache data that wont change, user and friends
   const user: UserSummary = await getUserData(steamId);
   const friends: UserSummary[] = await getUserFriends(steamId);
   const selectedFriendIds: string[] =
@@ -39,6 +40,7 @@ const UserPage = async (props: Props) => {
         <div className={"flex gap-2 p-4 overflow-auto"}>
           <FriendItem
             key={user.steamID}
+            steamId={user.steamID}
             avatar={user.avatar.medium}
             nickname={user.nickname}
             selected={true}
@@ -47,13 +49,14 @@ const UserPage = async (props: Props) => {
             return (
               <FriendItem
                 key={user.steamID}
+                steamId={user.steamID}
                 avatar={user.avatar.medium}
                 nickname={user.nickname}
                 selected={true}
               />
             );
           })}
-          {selectedFriends.length < 4 && <FriendItem />}
+          {selectedFriends.length < 3 && <FriendItem />}
         </div>
         {friendListVisible && (
           <div className={"flex flex-col gap-4 pt-0 p-4"}>
@@ -63,6 +66,7 @@ const UserPage = async (props: Props) => {
                 return (
                   <FriendItem
                     key={index}
+                    steamId={friend.steamID}
                     avatar={friend.avatar.medium}
                     nickname={friend.nickname}
                     selected={selectedFriendIds.includes(friend.steamID)}
