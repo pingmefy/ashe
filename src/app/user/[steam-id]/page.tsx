@@ -8,6 +8,7 @@ import getUserData from "../../../actions/get-user-data";
 import "react-roulette-pro/dist/index.css";
 import getUserFriends from "../../../actions/get-user-friends";
 import { getGridClassForFriends } from "../../../util/grid-utils";
+import { getSelectedFriendsFromSearchParams } from "../../../util/search-params";
 import { SearchParams, SteamIdParams } from "../../../util/types";
 
 type Props = {
@@ -16,14 +17,16 @@ type Props = {
 };
 
 const UserPage = async (props: Props) => {
-  const { params } = props;
+  const { params, searchParams } = props;
   const { "steam-id": steamId } = params;
   const user: UserSummary = await getUserData(steamId);
   const friends: UserSummary[] = await getUserFriends(steamId);
-  const selectedFriendIds: string[] = []; //todo get from search params
-  const selectedFriends: UserSummary[] = []; //todo get filtering friends by ids
-  const friendListVisible: boolean = true; //todo get from search params
-  console.log(user);
+  const selectedFriendIds: string[] =
+    getSelectedFriendsFromSearchParams(searchParams);
+  const selectedFriends: UserSummary[] = friends.filter((friend) =>
+    selectedFriendIds.includes(friend.steamID),
+  );
+  const friendListVisible: boolean = true; //todo implement
   return (
     <>
       <GamesContainer selectedFriendSteamIds={[]} />
