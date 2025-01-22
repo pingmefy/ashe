@@ -1,3 +1,4 @@
+"use client"
 import React, {useEffect, useMemo, useRef, useState} from "react";
 import Confetti from "react-confetti";
 import Roulette, {PrizeType} from "react-roulette-pro";
@@ -39,18 +40,19 @@ const shuffleArray = (array: GameResponse[]) => {
   return newArray
 }
 
-export const GamesContainer = () => {
+type Props = {
+  selectedFriendSteamIds: string[]
+}
+export const GamesContainer = (props : Props) => {
+  const {selectedFriendSteamIds} = props;
   const [start, setStart] = useState(false);
   const [buttonState, setButtonState] = useState<ButtonState>(ButtonState.START);
-  const {selectedFriends, getCommonGames, games} = useAppContext();
+  const { getCommonGames, games} = useAppContext();
   const [gameList, setGameList] = useState(games);
   const [showConfetti, setShowConfetti] = useState(false);
   const memoGameList = useMemo(() => gameList, [gameList]);
   const needToRefreshGames = useRef(false);
 
-  useEffect(() => {
-    if(selectedFriends.length > 1) needToRefreshGames.current = true
-  }, [selectedFriends]);
 
   useEffect(() => {
     setGameList(games)
@@ -59,7 +61,7 @@ export const GamesContainer = () => {
   const handleStartButton = () => {
     if(needToRefreshGames.current) {
       setButtonState(ButtonState.LOADING)
-      getCommonGames(selectedFriends.map((friend) => friend.steamID))
+      getCommonGames(selectedFriendSteamIds)
     }else {
       handleStart()
     }
@@ -116,7 +118,7 @@ export const GamesContainer = () => {
 
       />}
 
-      <Button disabled={buttonState === ButtonState.ROLLING || selectedFriends.length < 2 || buttonState === ButtonState.LOADING} buttonClass={ButtonClass.ROULETTE}
+      <Button disabled={buttonState === ButtonState.ROLLING || selectedFriendSteamIds.length < 2 || buttonState === ButtonState.LOADING} buttonClass={ButtonClass.ROULETTE}
         onClick={handleStartButton}>{buttonState}</Button>
     </div>
   )

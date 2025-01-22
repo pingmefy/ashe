@@ -8,6 +8,9 @@ type FriendsSectionProps = {
   friends: UserSummary[]
   user: UserSummary
 }
+//todo server-side friend selection to search params, also load friends from user, get steamId from path or props as pure string
+//todo bring friendList to this file, reducing complexity
+//todo friend item can also live here
 
 export const FriendsSection = ({friends, user,}: FriendsSectionProps) => {
   const [friendListVisible, setFriendListVisible] = React.useState(false)

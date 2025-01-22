@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="initial refactor, moving to serverside and server actions">
+    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="remove not needed API call from useSteamApi">
+      <change afterPath="$PROJECT_DIR$/src/actions/get-user-data.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useSteamApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useSteamApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ADSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ADSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Content.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GamesContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GamesContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/body_content/BodyContent.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/body_content/BodyContent.types.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +57,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "settings.editor.selected.configurable": "settings.typescriptcompiler",
     "ts.external.directory.path": "/Users/alvaro/Documents/Proyectos/viego_project/randomefy/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -111,15 +120,7 @@
       <workItem from="1727797415428" duration="3222000" />
       <workItem from="1728913254210" duration="601000" />
       <workItem from="1737385853612" duration="6575000" />
-      <workItem from="1737456949161" duration="8431000" />
-    </task>
-    <task id="LOCAL-00054" summary="fix import">
-      <option name="closed" value="true" />
-      <created>1717169178817</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1717169178817</updated>
+      <workItem from="1737456949161" duration="14315000" />
     </task>
     <task id="LOCAL-00055" summary="creatd app">
       <option name="closed" value="true" />
@@ -505,7 +506,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737473312765</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="remove not needed API call from useSteamApi">
+      <option name="closed" value="true" />
+      <created>1737473360578</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1737473360578</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +532,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added sharp package" />
     <MESSAGE value="update docker-compose" />
     <MESSAGE value="use Image class as improvement" />
     <MESSAGE value="remove excesive logs" />
@@ -548,6 +556,7 @@
     <MESSAGE value="fix: roulette selection" />
     <MESSAGE value="remove spacings to center properly" />
     <MESSAGE value="initial refactor, moving to serverside and server actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial refactor, moving to serverside and server actions" />
+    <MESSAGE value="remove not needed API call from useSteamApi" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove not needed API call from useSteamApi" />
   </component>
 </project>

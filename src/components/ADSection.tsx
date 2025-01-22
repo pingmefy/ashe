@@ -10,7 +10,7 @@ export const ADSection = () => {
     }
   }, []);
   return (
-    <div className={"hidden lg:block min-w-[18.75rem] w-[21%]"}>
+    <div className={"hidden lg:block"}>
       {/*<script async
               src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4760699435451370"
               crossOrigin="anonymous"></script>
