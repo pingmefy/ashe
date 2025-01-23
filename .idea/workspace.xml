@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="feat: get from params refactor, still need to implement friend selection">
+    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="feat: select/unselect friends saving in search params">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/search-params.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/search-params.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendsSection.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GamesContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GamesContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/AppContext.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,15 +117,7 @@
       <workItem from="1728913254210" duration="601000" />
       <workItem from="1737385853612" duration="6575000" />
       <workItem from="1737456949161" duration="14315000" />
-      <workItem from="1737553585807" duration="10927000" />
-    </task>
-    <task id="LOCAL-00058" summary="fixed dockerfile">
-      <option name="closed" value="true" />
-      <created>1717171437599</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1717171437599</updated>
+      <workItem from="1737553585807" duration="15842000" />
     </task>
     <task id="LOCAL-00059" summary="docker compose file">
       <option name="closed" value="true" />
@@ -509,7 +503,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737564855900</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="feat: select/unselect friends saving in search params">
+      <option name="closed" value="true" />
+      <created>1737566986027</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1737566986027</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +529,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix typo" />
     <MESSAGE value="fix init sh" />
     <MESSAGE value="update docker compose" />
     <MESSAGE value="changed passw" />
@@ -552,6 +553,7 @@
     <MESSAGE value="wip: refactoring" />
     <MESSAGE value="wip: rendering friend list" />
     <MESSAGE value="feat: get from params refactor, still need to implement friend selection" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: get from params refactor, still need to implement friend selection" />
+    <MESSAGE value="feat: select/unselect friends saving in search params" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: select/unselect friends saving in search params" />
   </component>
 </project>

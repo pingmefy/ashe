@@ -30,7 +30,9 @@ const UserPage = async (props: Props) => {
   const friendListVisible: boolean = true; //todo implement
   return (
     <>
-      <GamesContainer selectedFriendSteamIds={[]} />
+      <GamesContainer
+        selectedFriendSteamIds={[...selectedFriendIds, steamId]}
+      />
       <div
         className={"bg-primaryColorDark mx-0 my-10 lg:m-10 p-4 flex flex-col"}
       >
