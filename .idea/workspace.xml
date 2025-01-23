@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="fix: roulette selection">
+    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="feat: caching avoiding lag">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/RouletteStylePlugin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/RouletteStylePlugin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendItem.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,18 +18,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feat/steamid-from-profile-url" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -41,14 +43,15 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;pages-to-app-dir&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/alvaro/Documents/Proyectos/viego_project/randomefy/public&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/alvaro/Documents/Proyectos/viego_project/randomefy/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.typescriptcompiler&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/alvaro/Documents/Proyectos/viego_project/randomefy/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -59,11 +62,11 @@
       <recent name="$PROJECT_DIR$/src/pages/api" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/steamId" />
+      <recent name="$PROJECT_DIR$/src/components/form" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/public" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/app/public" />
-      <recent name="$PROJECT_DIR$/src/components/button" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -110,79 +113,10 @@
       <workItem from="1726847581969" duration="1763000" />
       <workItem from="1727797415428" duration="3222000" />
       <workItem from="1728913254210" duration="601000" />
-      <workItem from="1737385853612" duration="4450000" />
-    </task>
-    <task id="LOCAL-00052" summary="fixes to build">
-      <option name="closed" value="true" />
-      <created>1717167353911</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1717167353911</updated>
-    </task>
-    <task id="LOCAL-00053" summary="rename dir">
-      <option name="closed" value="true" />
-      <created>1717168924918</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1717168924918</updated>
-    </task>
-    <task id="LOCAL-00054" summary="fix import">
-      <option name="closed" value="true" />
-      <created>1717169178817</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1717169178817</updated>
-    </task>
-    <task id="LOCAL-00055" summary="creatd app">
-      <option name="closed" value="true" />
-      <created>1717169432917</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1717169432917</updated>
-    </task>
-    <task id="LOCAL-00056" summary="remove import from app.tsx">
-      <option name="closed" value="true" />
-      <created>1717169554431</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1717169554431</updated>
-    </task>
-    <task id="LOCAL-00057" summary="fixed dockerfile">
-      <option name="closed" value="true" />
-      <created>1717169679307</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1717169679308</updated>
-    </task>
-    <task id="LOCAL-00058" summary="fixed dockerfile">
-      <option name="closed" value="true" />
-      <created>1717171437599</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1717171437599</updated>
-    </task>
-    <task id="LOCAL-00059" summary="docker compose file">
-      <option name="closed" value="true" />
-      <created>1717171481078</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1717171481078</updated>
-    </task>
-    <task id="LOCAL-00060" summary="added title and meta">
-      <option name="closed" value="true" />
-      <created>1717503741593</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1717503741593</updated>
+      <workItem from="1737385853612" duration="6575000" />
+      <workItem from="1737456949161" duration="14315000" />
+      <workItem from="1737553585807" duration="16808000" />
+      <workItem from="1737639699856" duration="558000" />
     </task>
     <task id="LOCAL-00061" summary="new images">
       <option name="closed" value="true" />
@@ -504,7 +438,79 @@
       <option name="project" value="LOCAL" />
       <updated>1737387927950</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="remove spacings to center properly">
+      <option name="closed" value="true" />
+      <created>1737392691574</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1737392691574</updated>
+    </task>
+    <task id="LOCAL-00102" summary="initial refactor, moving to serverside and server actions">
+      <option name="closed" value="true" />
+      <created>1737473312765</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1737473312765</updated>
+    </task>
+    <task id="LOCAL-00103" summary="remove not needed API call from useSteamApi">
+      <option name="closed" value="true" />
+      <created>1737473360578</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1737473360578</updated>
+    </task>
+    <task id="LOCAL-00104" summary="wip: refactoring">
+      <option name="closed" value="true" />
+      <created>1737553625676</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1737553625676</updated>
+    </task>
+    <task id="LOCAL-00105" summary="wip: rendering friend list">
+      <option name="closed" value="true" />
+      <created>1737563173750</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1737563173750</updated>
+    </task>
+    <task id="LOCAL-00106" summary="feat: get from params refactor, still need to implement friend selection">
+      <option name="closed" value="true" />
+      <created>1737564855900</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1737564855900</updated>
+    </task>
+    <task id="LOCAL-00107" summary="feat: select/unselect friends saving in search params">
+      <option name="closed" value="true" />
+      <created>1737566986027</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1737566986027</updated>
+    </task>
+    <task id="LOCAL-00108" summary="feat: remove not used files and enable rolling">
+      <option name="closed" value="true" />
+      <created>1737636547800</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1737636547800</updated>
+    </task>
+    <task id="LOCAL-00109" summary="feat: caching avoiding lag">
+      <option name="closed" value="true" />
+      <created>1737637204828</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1737637204828</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,15 +528,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="better send a key and format it on the frontend" />
-    <MESSAGE value="update dockerfile" />
-    <MESSAGE value="added sharp package" />
-    <MESSAGE value="update docker-compose" />
-    <MESSAGE value="use Image class as improvement" />
-    <MESSAGE value="remove excesive logs" />
-    <MESSAGE value="fix typo" />
-    <MESSAGE value="fix init sh" />
-    <MESSAGE value="update docker compose" />
     <MESSAGE value="changed passw" />
     <MESSAGE value="updated next config" />
     <MESSAGE value="changed Image to img avoiding issues" />
@@ -547,6 +544,15 @@
     <MESSAGE value="refactor: moved error into types" />
     <MESSAGE value="feat: error management for privacy" />
     <MESSAGE value="fix: roulette selection" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: roulette selection" />
+    <MESSAGE value="remove spacings to center properly" />
+    <MESSAGE value="initial refactor, moving to serverside and server actions" />
+    <MESSAGE value="remove not needed API call from useSteamApi" />
+    <MESSAGE value="wip: refactoring" />
+    <MESSAGE value="wip: rendering friend list" />
+    <MESSAGE value="feat: get from params refactor, still need to implement friend selection" />
+    <MESSAGE value="feat: select/unselect friends saving in search params" />
+    <MESSAGE value="feat: remove not used files and enable rolling" />
+    <MESSAGE value="feat: caching avoiding lag" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: caching avoiding lag" />
   </component>
 </project>
