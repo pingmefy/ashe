@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="feat: select/unselect friends saving in search params">
+    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="feat: remove not used files and enable rolling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendsSection.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GamesContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GamesContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/context/AppContext.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,15 +113,7 @@
       <workItem from="1728913254210" duration="601000" />
       <workItem from="1737385853612" duration="6575000" />
       <workItem from="1737456949161" duration="14315000" />
-      <workItem from="1737553585807" duration="15842000" />
-    </task>
-    <task id="LOCAL-00059" summary="docker compose file">
-      <option name="closed" value="true" />
-      <created>1717171481078</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1717171481078</updated>
+      <workItem from="1737553585807" duration="16448000" />
     </task>
     <task id="LOCAL-00060" summary="added title and meta">
       <option name="closed" value="true" />
@@ -511,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737566986027</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="feat: remove not used files and enable rolling">
+      <option name="closed" value="true" />
+      <created>1737636547800</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1737636547800</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,7 +525,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix init sh" />
     <MESSAGE value="update docker compose" />
     <MESSAGE value="changed passw" />
     <MESSAGE value="updated next config" />
@@ -554,6 +549,7 @@
     <MESSAGE value="wip: rendering friend list" />
     <MESSAGE value="feat: get from params refactor, still need to implement friend selection" />
     <MESSAGE value="feat: select/unselect friends saving in search params" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: select/unselect friends saving in search params" />
+    <MESSAGE value="feat: remove not used files and enable rolling" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: remove not used files and enable rolling" />
   </component>
 </project>

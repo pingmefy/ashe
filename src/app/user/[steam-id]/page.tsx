@@ -1,7 +1,7 @@
 "use server";
-
 import { FriendItem } from "@components/FriendItem";
 import { GamesContainer } from "@components/GamesContainer";
+import { unstable_cache } from "next/cache";
 import React from "react";
 import { UserSummary } from "steamapi";
 import getUserData from "../../../actions/get-user-data";
@@ -19,9 +19,16 @@ type Props = {
 const UserPage = async (props: Props) => {
   const { params, searchParams } = props;
   const { "steam-id": steamId } = params;
-  //todo cache data that wont change, user and friends
-  const user: UserSummary = await getUserData(steamId);
-  const friends: UserSummary[] = await getUserFriends(steamId);
+  const userCache = unstable_cache(
+    async () => await getUserData(steamId),
+    [steamId],
+  );
+  const friendsCache = unstable_cache(
+    async () => await getUserFriends(steamId),
+    [steamId],
+  );
+  const friends: UserSummary[] = await friendsCache();
+  const user: UserSummary = await userCache();
   const selectedFriendIds: string[] =
     getSelectedFriendsFromSearchParams(searchParams);
   const selectedFriends: UserSummary[] = friends.filter((friend) =>
