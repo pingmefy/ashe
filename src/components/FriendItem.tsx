@@ -71,7 +71,6 @@ export const FriendItem = ({
         />
         <span>{nickname}</span>
       </div>
-      {selected ? <CheckIcon /> : null}
     </div>
   );
 };
