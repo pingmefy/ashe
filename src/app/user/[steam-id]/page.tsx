@@ -7,7 +7,6 @@ import { UserSummary } from "steamapi";
 import getUserData from "../../../actions/get-user-data";
 import "react-roulette-pro/dist/index.css";
 import getUserFriends from "../../../actions/get-user-friends";
-import { getGridClassForFriends } from "../../../util/grid-utils";
 import { getSelectedFriendsFromSearchParams } from "../../../util/search-params";
 import { SearchParams, SteamIdParams } from "../../../util/types";
 
@@ -41,7 +40,9 @@ const UserPage = async (props: Props) => {
         selectedFriendSteamIds={[...selectedFriendIds, steamId]}
       />
       <div
-        className={"bg-primaryColorDark mx-0 my-10 lg:m-10 p-4 flex flex-col"}
+        className={
+          "bg-primaryColorDark mx-0 my-10 lg:m-10 p-4 flex flex-col w-full"
+        }
       >
         <span className={"text-white m-auto"}>
           choose the friends you want to play with
@@ -70,11 +71,13 @@ const UserPage = async (props: Props) => {
         {friendListVisible && (
           <div className={"flex flex-col gap-4 pt-0 p-4"}>
             <div className={"h-[1px] bg-greenPrimary w-[90%] m-auto"} />
-            <div className={`grid ${getGridClassForFriends(friends)} gap-4`}>
+            <div
+              className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}
+            >
               {friends.map((friend, index) => {
                 return (
                   <FriendItem
-                    key={index}
+                    key={friend.steamID}
                     steamId={friend.steamID}
                     avatar={friend.avatar.medium}
                     nickname={friend.nickname}
