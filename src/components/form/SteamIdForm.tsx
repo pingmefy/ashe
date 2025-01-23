@@ -11,7 +11,8 @@ const SteamIdForm = () => {
   };
 
   const handleOnInputChange = useCallback((value: string) => {
-    setProfileUrl(value.trim);
+    const url = value.trim();
+    setProfileUrl(url);
   }, []);
 
   return (
