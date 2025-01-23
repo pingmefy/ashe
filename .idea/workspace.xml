@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="feat: caching avoiding lag">
+    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="feat: some visual improvements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,15 +114,7 @@
       <workItem from="1737385853612" duration="6575000" />
       <workItem from="1737456949161" duration="14315000" />
       <workItem from="1737553585807" duration="16808000" />
-      <workItem from="1737639699856" duration="558000" />
-    </task>
-    <task id="LOCAL-00061" summary="new images">
-      <option name="closed" value="true" />
-      <created>1717504617159</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1717504617159</updated>
+      <workItem from="1737639699856" duration="1636000" />
     </task>
     <task id="LOCAL-00062" summary="fixed copy and spacing">
       <option name="closed" value="true" />
@@ -510,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737637204828</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="feat: some visual improvements">
+      <option name="closed" value="true" />
+      <created>1737640320421</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1737640320421</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,7 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed passw" />
     <MESSAGE value="updated next config" />
     <MESSAGE value="changed Image to img avoiding issues" />
     <MESSAGE value="fix: not rendering anything if theres an error, dont use Image for games" />
@@ -553,6 +550,7 @@
     <MESSAGE value="feat: select/unselect friends saving in search params" />
     <MESSAGE value="feat: remove not used files and enable rolling" />
     <MESSAGE value="feat: caching avoiding lag" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: caching avoiding lag" />
+    <MESSAGE value="feat: some visual improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: some visual improvements" />
   </component>
 </project>
