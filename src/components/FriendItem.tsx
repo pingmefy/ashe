@@ -1,8 +1,7 @@
 "use client";
-import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React from "react";
-import { AddIcon, CheckIcon } from "../resources/Icons";
+import { AddIcon } from "../resources/Icons";
 import {
   convertURLSearchParamsToSearchParams,
   getSelectedFriendsFromSearchParams,

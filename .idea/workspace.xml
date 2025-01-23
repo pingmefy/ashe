@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="update next">
+    <list default="true" id="fcf352fe-00c0-4c81-834a-1d220fa9def3" name="Changes" comment="fix style">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/user/[steam-id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/grid-utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/grid-utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,23 +113,7 @@
       <workItem from="1737385853612" duration="6575000" />
       <workItem from="1737456949161" duration="14315000" />
       <workItem from="1737553585807" duration="16808000" />
-      <workItem from="1737639699856" duration="2737000" />
-    </task>
-    <task id="LOCAL-00063" summary="fixed footer image position">
-      <option name="closed" value="true" />
-      <created>1717506463930</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1717506463930</updated>
-    </task>
-    <task id="LOCAL-00064" summary="fix friend limit">
-      <option name="closed" value="true" />
-      <created>1717506769849</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1717506769849</updated>
+      <workItem from="1737639699856" duration="3537000" />
     </task>
     <task id="LOCAL-00065" summary="sort friend list by nickname">
       <option name="closed" value="true" />
@@ -510,7 +491,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737648375451</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="fix style">
+      <option name="closed" value="true" />
+      <created>1737649487359</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1737649487359</updated>
+    </task>
+    <task id="LOCAL-00113" summary="fix style">
+      <option name="closed" value="true" />
+      <created>1737649505590</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1737649505590</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,7 +525,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed Image to img avoiding issues" />
     <MESSAGE value="fix: not rendering anything if theres an error, dont use Image for games" />
     <MESSAGE value="fix: position of the button and height of the games component" />
     <MESSAGE value="wip: error management, few refactors" />
@@ -553,6 +549,7 @@
     <MESSAGE value="feat: caching avoiding lag" />
     <MESSAGE value="feat: some visual improvements" />
     <MESSAGE value="update next" />
-    <option name="LAST_COMMIT_MESSAGE" value="update next" />
+    <MESSAGE value="fix style" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix style" />
   </component>
 </project>
