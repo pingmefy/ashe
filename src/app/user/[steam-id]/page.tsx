@@ -74,7 +74,7 @@ const UserPage = async (props: Props) => {
             <div
               className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}
             >
-              {friends.map((friend, index) => {
+              {friends.map((friend) => {
                 return (
                   <FriendItem
                     key={friend.steamID}
