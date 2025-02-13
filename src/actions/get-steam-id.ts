@@ -47,7 +47,7 @@ const getSteamId = async (profileUrl: string) => {
   } catch (e) {
     console.log(e);
     logger.error("error getting steam id", JSON.stringify(e));
-    redirect(paths.userPage(e.message));
+    redirect(paths.userPage((e as Error).message.toString()));
   }
 };
 
