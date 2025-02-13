@@ -2,7 +2,6 @@
 
 import { redirect } from "next/navigation";
 import paths from "../paths";
-import { logger } from "../util/logger";
 import {
   getKeyFromProfileUrl,
   getSteamIdFromUrl,
