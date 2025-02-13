@@ -33,22 +33,16 @@ const getSteamIdFromProfile = async (profileUrl: string) => {
 const getSteamId = async (profileUrl: string) => {
   console.log("Getting steam id");
   if (!isValidSteamProfile(profileUrl)) return; //todo show error instead
-  try {
-    let steamId;
-    if (isCustomProfileUrl(profileUrl)) {
-      const result = await getSteamIdFromProfile(
-        getKeyFromProfileUrl(profileUrl),
-      );
-      steamId = result.steamId;
-    } else {
-      steamId = getSteamIdFromUrl(profileUrl);
-    }
-    redirect(paths.userPage(steamId));
-  } catch (e) {
-    console.log(e);
-    logger.error("error getting steam id", JSON.stringify(e));
-    redirect(paths.userPage((e as Error).message.toString()));
+  let steamId;
+  if (isCustomProfileUrl(profileUrl)) {
+    const result = await getSteamIdFromProfile(
+      getKeyFromProfileUrl(profileUrl),
+    );
+    steamId = result.steamId;
+  } else {
+    steamId = getSteamIdFromUrl(profileUrl);
   }
+  redirect(paths.userPage(steamId));
 };
 
 export default getSteamId;
