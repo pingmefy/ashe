@@ -30,7 +30,6 @@ const getSteamIdFromProfile = async (profileUrl: string) => {
  * Gets user steam id by profile url
  */
 const getSteamId = async (profileUrl: string) => {
-  console.log("Getting steam id");
   if (!isValidSteamProfile(profileUrl)) return; //todo show error instead
   let steamId;
   if (isCustomProfileUrl(profileUrl)) {

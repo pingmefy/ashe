@@ -37,7 +37,6 @@ export const useSteamApi = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.error !== null) setError(data.error);
-        console.log(data.data.length, "GAMES LENGTH");
         setGames(data.data);
       })
       .catch((error) => {

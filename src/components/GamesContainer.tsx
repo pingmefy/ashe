@@ -124,10 +124,8 @@ export const GamesContainer = (props: Props) => {
     handleStart();
     needToRefreshGames.current = false;
   }, [prizeList]);
-  console.log(formedPrizeList.length, "FORMED PRIZE LIST");
 
   const prizeIndex = formedPrizeList.length - 20;
-  console.log(prizeIndex, "PRIZE INDEX");
   return (
     <div className={"flex flex-col"}>
       <Roulette

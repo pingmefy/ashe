@@ -1,11 +1,11 @@
-import type {NextApiRequest, NextApiResponse} from 'next';
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export type ProfileUrlResponse = {
   steamId: string;
-}
+};
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ProfileUrlResponse | { error: string }>
+  res: NextApiResponse<ProfileUrlResponse | { error: string }>,
 ) {
   try {
     const profileUrl = req.body.profileUrl;
@@ -14,18 +14,20 @@ export default async function handler(
       vanityurl: profileUrl,
     });
     const url = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?${params.toString()}`;
-    console.log(url, "url")
     const response = await fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
 
     const json = await response.json();
-    res.status(200).json({steamId: json.response.steamid});
+    res.status(200).json({ steamId: json.response.steamid });
   } catch (error: unknown) {
-    res.status(500).json({ error: error instanceof Error ? error.message : "Unknown error"});
+    res
+      .status(500)
+      .json({
+        error: error instanceof Error ? error.message : "Unknown error",
+      });
   }
 }
-
