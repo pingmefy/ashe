@@ -7,6 +7,8 @@ import gameDesign from "../util/RouletteStylePlugin";
 import { GameResponse } from "../util/types";
 import { Button, ButtonClass } from "./button/Button";
 
+const MIN_GAMES_IN_ROULETTE = 300;
+
 enum ButtonState {
   START = "find a game for us",
   ROLLING = "they see me rollin...",
@@ -15,22 +17,24 @@ enum ButtonState {
 }
 
 const getFormedPrizeList = (prizeList: PrizeType[]) => {
-  const reproductionArray = (array: PrizeType[] = [], length = 0) => [
-    ...Array(length)
-      .fill("_")
-      .map(() => array[Math.floor(Math.random() * array.length)]),
-  ];
-  return [
-    ...prizeList,
-    ...reproductionArray(prizeList, prizeList.length * 3),
-    ...prizeList,
-    ...reproductionArray(prizeList, prizeList.length),
-  ].map((prize, index) => ({ ...prize, id: index }));
+  if (prizeList.length === 0) return [];
+
+  const multiplier = Math.ceil(MIN_GAMES_IN_ROULETTE / prizeList.length);
+  const newArray = [];
+  for (let i = 0; i < multiplier; i++) {
+    newArray.push(...prizeList);
+  }
+  const limit = Math.min(newArray.length, MIN_GAMES_IN_ROULETTE);
+  newArray.splice(limit, newArray.length - limit);
+
+  return newArray.map((prize, index) => ({ ...prize, id: index }));
 };
 
-const emptyPrizeArray: PrizeType[] = Array(20)
-  .fill({ id: 1, image: "" }, 0, 20)
-  .map((_, index) => ({ id: index, image: "" }));
+const emptyPrizeArray: PrizeType[] = Array(20).fill(
+  { id: 1, image: "" },
+  0,
+  20,
+);
 
 const shuffleArray = (array: GameResponse[]) => {
   const newArray = [];
@@ -120,8 +124,10 @@ export const GamesContainer = (props: Props) => {
     handleStart();
     needToRefreshGames.current = false;
   }, [prizeList]);
+  console.log(formedPrizeList.length, "FORMED PRIZE LIST");
 
-  const prizeIndex = formedPrizeList.length / 2;
+  const prizeIndex = formedPrizeList.length - 20;
+  console.log(prizeIndex, "PRIZE INDEX");
   return (
     <div className={"flex flex-col"}>
       <Roulette

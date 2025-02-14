@@ -1,6 +1,6 @@
-import {useState} from "react";
-import {UserSummary} from "steamapi";
-import {APIError, GameResponse} from "../util/types";
+import { useState } from "react";
+import { UserSummary } from "steamapi";
+import { APIError, GameResponse } from "../util/types";
 
 export const useSteamApi = () => {
   const [games, setGames] = useState<GameResponse[]>([]);
@@ -9,61 +9,70 @@ export const useSteamApi = () => {
   const [error, setError] = useState<APIError | null>(null);
 
   const getFriendList = (user: UserSummary) => {
-    if(user === null) return;
-    fetchAPI('/api/friendList', {
-      method: 'POST', // Set the method to POST
+    if (user === null) return;
+    fetchAPI("/api/friendList", {
+      method: "POST", // Set the method to POST
       headers: {
-        'Content-Type': 'application/json', // Set the Content-Type header to application/json
+        "Content-Type": "application/json", // Set the Content-Type header to application/json
       },
-      body: JSON.stringify({steamId: user.steamID})
+      body: JSON.stringify({ steamId: user.steamID }),
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         setFriendList(data as UserSummary[]);
       })
-      .catch(error => {
-        console.error('AppError fetching data:', error);
+      .catch((error) => {
+        console.error("AppError fetching data:", error);
       });
-  }
+  };
 
   const getCommonGames = (steamIds: string[] = []) => {
-    fetchAPI('/api/commonGames', {
-      method: 'POST', // Set the method to POST
+    fetchAPI("/api/commonGames", {
+      method: "POST", // Set the method to POST
       headers: {
-        'Content-Type': 'application/json', // Set the Content-Type header to application/json
+        "Content-Type": "application/json", // Set the Content-Type header to application/json
       },
-      body: JSON.stringify({steamIds: steamIds })
+      body: JSON.stringify({ steamIds: steamIds }),
     })
-      .then(response => response.json())
-      .then(data => {
-        if(data.error !== null) setError(data.error);
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error !== null) setError(data.error);
+        console.log(data.data.length, "GAMES LENGTH");
         setGames(data.data);
       })
-      .catch(error => {
-        console.error('AppError fetching data:', error);
+      .catch((error) => {
+        console.error("AppError fetching data:", error);
       });
-  }
+  };
 
   const getUserData = (steamId: string) => {
-    fetchAPI('/api/userData', {
-      method: 'POST',
+    fetchAPI("/api/userData", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({steamId: steamId})
+      body: JSON.stringify({ steamId: steamId }),
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         setUser(data);
       })
-      .catch(error => {
-        console.error('AppError fetching data:', error);
+      .catch((error) => {
+        console.error("AppError fetching data:", error);
       });
-  }
+  };
 
   const fetchAPI = (input: string, init: RequestInit): Promise<Response> => {
     setError(null);
-    return fetch(input, init)
-  }
-  return {getFriendList, friendList, getCommonGames, games, getUserData, user, error}
-}
+    return fetch(input, init);
+  };
+  return {
+    getFriendList,
+    friendList,
+    getCommonGames,
+    games,
+    getUserData,
+    user,
+    error,
+  };
+};
