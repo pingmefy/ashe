@@ -1,5 +1,8 @@
+import { getErrorMessage } from "@components/error_block/AppError";
+import { useToast } from "@components/hooks/use-toast";
 import { useState } from "react";
 import { UserSummary } from "steamapi";
+import { shuffleArray } from "../util/array-utils";
 import { APIError, GameResponse } from "../util/types";
 
 export const useSteamApi = () => {
@@ -7,6 +10,7 @@ export const useSteamApi = () => {
   const [user, setUser] = useState<UserSummary | null>(null);
   const [friendList, setFriendList] = useState<UserSummary[]>([]);
   const [error, setError] = useState<APIError | null>(null);
+  const { toast } = useToast();
 
   const getFriendList = (user: UserSummary) => {
     if (user === null) return;
@@ -30,14 +34,20 @@ export const useSteamApi = () => {
     fetchAPI("/api/commonGames", {
       method: "POST", // Set the method to POST
       headers: {
-        "Content-Type": "application/json", // Set the Content-Type header to application/json
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ steamIds: steamIds }),
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.error !== null) setError(data.error);
-        setGames(data.data);
+        if (data.error !== null) {
+          toast({
+            title: "Error",
+            description: getErrorMessage(data.error.code),
+            variant: "destructive",
+          });
+        }
+        setGames(shuffleArray([...data.data]));
       })
       .catch((error) => {
         console.error("AppError fetching data:", error);

@@ -1,4 +1,5 @@
 import { ADSection } from "@components/ADSection";
+import { Toaster } from "@components/components/ui/toaster";
 import { Header } from "@components/Header";
 import { Navbar } from "@components/Navbar";
 import type { Metadata } from "next";
@@ -35,6 +36,7 @@ const Layout = ({ children }: Props) => (
           </aside>
         </div>
       </div>
+      <Toaster />
     </body>
   </html>
 );

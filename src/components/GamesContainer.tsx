@@ -3,8 +3,8 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import Roulette, { PrizeType } from "react-roulette-pro";
 import { useSteamApi } from "../hooks/useSteamApi";
+import { shuffleArray } from "../util/array-utils";
 import gameDesign from "../util/RouletteStylePlugin";
-import { GameResponse } from "../util/types";
 import { Button, ButtonClass } from "./button/Button";
 
 const MIN_GAMES_IN_ROULETTE = 300;
@@ -35,16 +35,6 @@ const emptyPrizeArray: PrizeType[] = Array(20).fill(
   0,
   20,
 );
-
-const shuffleArray = (array: GameResponse[]) => {
-  const newArray = [];
-  while (array.length) {
-    const randomIndex = Math.floor(Math.random() * array.length),
-      element = array.splice(randomIndex, 1);
-    newArray.push(element[0]);
-  }
-  return newArray;
-};
 
 type Props = {
   selectedFriendSteamIds: string[];
